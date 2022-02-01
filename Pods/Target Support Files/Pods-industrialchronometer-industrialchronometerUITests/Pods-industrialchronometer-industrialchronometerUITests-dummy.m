@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_industrialchronometer_industrialchronometerUITests : NSObject
+@end
+@implementation PodsDummy_Pods_industrialchronometer_industrialchronometerUITests
+@end
