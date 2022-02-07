@@ -7,7 +7,8 @@ target 'industrialchronometer' do
 
   # Pods for industrialchronometer
 pod 'DLRadioButton', '~> 1.4'
-
+pod 'Charts'
+pod 'TinyConstraints'
   target 'industrialchronometerTests' do
     inherit! :search_paths
     # Pods for testing

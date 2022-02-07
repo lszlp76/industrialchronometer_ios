@@ -20,6 +20,13 @@
 		F92DFA4227A87C5C0094E17D /* industrialchronometerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA4127A87C5C0094E17D /* industrialchronometerUITests.swift */; };
 		F92DFA4427A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA4327A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift */; };
 		F92DFA5127A885480094E17D /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA5027A885480094E17D /* RadioButtonController.swift */; };
+		F93FBACF27B1108400622C54 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93FBACE27B1108400622C54 /* TabBarViewController.swift */; };
+		F93FBAD327B1887100622C54 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93FBAD227B1887100622C54 /* TransferService.swift */; };
+		F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2427ABFC0D00700533 /* PageViewController.swift */; };
+		F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2627ABFD1D00700533 /* ChartViewController.swift */; };
+		F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2827ABFD2800700533 /* AboutViewController.swift */; };
+		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
+		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +70,13 @@
 		F92DFA4127A87C5C0094E17D /* industrialchronometerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = industrialchronometerUITests.swift; sourceTree = "<group>"; };
 		F92DFA4327A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = industrialchronometerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F92DFA5027A885480094E17D /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
+		F93FBACE27B1108400622C54 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		F93FBAD227B1887100622C54 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
+		F950FE2427ABFC0D00700533 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		F950FE2627ABFD1D00700533 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		F950FE2827ABFD2800700533 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
+		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,12 +157,12 @@
 			children = (
 				F92DFA2027A87C5B0094E17D /* AppDelegate.swift */,
 				F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */,
-				F92DFA2427A87C5B0094E17D /* ViewController.swift */,
-				F92DFA2627A87C5B0094E17D /* Main.storyboard */,
+				F9B1BD5327A911E80062B161 /* Model */,
+				F9B1BD4E27A9109D0062B161 /* View */,
+				F9B1BD4D27A910910062B161 /* Controller */,
 				F92DFA2927A87C5C0094E17D /* Assets.xcassets */,
 				F92DFA2B27A87C5C0094E17D /* LaunchScreen.storyboard */,
 				F92DFA2E27A87C5C0094E17D /* Info.plist */,
-				F92DFA5027A885480094E17D /* RadioButtonController.swift */,
 			);
 			path = industrialchronometer;
 			sourceTree = "<group>";
@@ -168,6 +182,37 @@
 				F92DFA4327A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift */,
 			);
 			path = industrialchronometerUITests;
+			sourceTree = "<group>";
+		};
+		F9B1BD4D27A910910062B161 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F92DFA5027A885480094E17D /* RadioButtonController.swift */,
+				F92DFA2427A87C5B0094E17D /* ViewController.swift */,
+				F950FE2627ABFD1D00700533 /* ChartViewController.swift */,
+				F950FE2427ABFC0D00700533 /* PageViewController.swift */,
+				F950FE2827ABFD2800700533 /* AboutViewController.swift */,
+				F93FBACE27B1108400622C54 /* TabBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F9B1BD4E27A9109D0062B161 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F92DFA2627A87C5B0094E17D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F9B1BD5327A911E80062B161 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9B1BD5127A9118D0062B161 /* LapsVal.swift */,
+				F9B1BD4F27A911420062B161 /* Laps.swift */,
+				F93FBAD227B1887100622C54 /* TransferService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,9 +455,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */,
+				F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */,
 				F92DFA5127A885480094E17D /* RadioButtonController.swift in Sources */,
+				F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */,
 				F92DFA2127A87C5B0094E17D /* AppDelegate.swift in Sources */,
+				F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */,
+				F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */,
 				F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */,
+				F93FBAD327B1887100622C54 /* TransferService.swift in Sources */,
+				F93FBACF27B1108400622C54 /* TabBarViewController.swift in Sources */,
+				F9B1BD5027A911420062B161 /* Laps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +571,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -574,7 +626,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -606,7 +658,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ulasozalp.industrialchronometer;
+				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -636,7 +688,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ulasozalp.industrialchronometer;
+				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

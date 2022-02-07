@@ -1,16 +1,26 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - DLRadioButton (1.4.12)
+  - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
+  - Charts
   - DLRadioButton (~> 1.4)
+  - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - Charts
     - DLRadioButton
+    - TinyConstraints
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 4aa2b2d2923daff44608ad2115cd7bd5b635d097
+PODFILE CHECKSUM: 55e16d8509f6928dfa28e0d54f8efbf65600ccf5
 
 COCOAPODS: 1.11.0.beta.1
