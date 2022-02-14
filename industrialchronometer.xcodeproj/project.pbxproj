@@ -20,13 +20,15 @@
 		F92DFA4227A87C5C0094E17D /* industrialchronometerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA4127A87C5C0094E17D /* industrialchronometerUITests.swift */; };
 		F92DFA4427A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA4327A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift */; };
 		F92DFA5127A885480094E17D /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA5027A885480094E17D /* RadioButtonController.swift */; };
-		F93FBACF27B1108400622C54 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93FBACE27B1108400622C54 /* TabBarViewController.swift */; };
 		F93FBAD327B1887100622C54 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93FBAD227B1887100622C54 /* TransferService.swift */; };
 		F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2427ABFC0D00700533 /* PageViewController.swift */; };
 		F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2627ABFD1D00700533 /* ChartViewController.swift */; };
 		F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2827ABFD2800700533 /* AboutViewController.swift */; };
+		F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */; };
+		F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F96FD0B327B281C400242AA8 /* Digital.ttf */; };
 		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
 		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
+		F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +72,15 @@
 		F92DFA4127A87C5C0094E17D /* industrialchronometerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = industrialchronometerUITests.swift; sourceTree = "<group>"; };
 		F92DFA4327A87C5C0094E17D /* industrialchronometerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = industrialchronometerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F92DFA5027A885480094E17D /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
-		F93FBACE27B1108400622C54 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F93FBAD227B1887100622C54 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		F950FE2427ABFC0D00700533 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F950FE2627ABFD1D00700533 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F950FE2827ABFD2800700533 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapListCellTableViewCell.swift; sourceTree = "<group>"; };
+		F96FD0B327B281C400242AA8 /* Digital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Digital.ttf; path = ../../../Digital.ttf; sourceTree = "<group>"; };
 		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
+		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				F92DFA2927A87C5C0094E17D /* Assets.xcassets */,
 				F92DFA2B27A87C5C0094E17D /* LaunchScreen.storyboard */,
 				F92DFA2E27A87C5C0094E17D /* Info.plist */,
+				F96FD0AA27B2697400242AA8 /* fonts */,
 			);
 			path = industrialchronometer;
 			sourceTree = "<group>";
@@ -184,15 +189,24 @@
 			path = industrialchronometerUITests;
 			sourceTree = "<group>";
 		};
+		F96FD0AA27B2697400242AA8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F96FD0B327B281C400242AA8 /* Digital.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		F9B1BD4D27A910910062B161 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				F92DFA5027A885480094E17D /* RadioButtonController.swift */,
 				F92DFA2427A87C5B0094E17D /* ViewController.swift */,
+				F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */,
 				F950FE2627ABFD1D00700533 /* ChartViewController.swift */,
 				F950FE2427ABFC0D00700533 /* PageViewController.swift */,
 				F950FE2827ABFD2800700533 /* AboutViewController.swift */,
-				F93FBACE27B1108400622C54 /* TabBarViewController.swift */,
+				F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92DFA2D27A87C5C0094E17D /* LaunchScreen.storyboard in Resources */,
+				F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */,
 				F92DFA2A27A87C5C0094E17D /* Assets.xcassets in Resources */,
 				F92DFA2827A87C5B0094E17D /* Main.storyboard in Resources */,
 			);
@@ -455,15 +470,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */,
+				F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */,
 				F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */,
 				F92DFA5127A885480094E17D /* RadioButtonController.swift in Sources */,
 				F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */,
 				F92DFA2127A87C5B0094E17D /* AppDelegate.swift in Sources */,
 				F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */,
 				F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */,
+				F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */,
 				F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */,
 				F93FBAD327B1887100622C54 /* TransferService.swift in Sources */,
-				F93FBACF27B1108400622C54 /* TabBarViewController.swift in Sources */,
 				F9B1BD5027A911420062B161 /* Laps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

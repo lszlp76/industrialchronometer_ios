@@ -10,14 +10,24 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//https://www.appsdeveloperblog.com/customize-uinavigationbar-appearance-programmatically-via-appdelegate/
+    
+    
    var window: UIWindow?
     var viewControllers : [UIViewController]?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
-//        // Override point for customization after application launch.
+        //red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+    
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
 //
-//        //tabbar activities
+//
+//        let navItem = UINavigationItem(title: "SomeTitle")
+////        // Override point for customization after application launch.
+//
+//        //tabbar activitiesred: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
 //
 //        //1 - create a window with the main screen dimensions
 //        window = UIWindow(frame : UIScreen.main.bounds)

@@ -10,8 +10,8 @@ class RadioButtonController: NSObject {
     var buttonsArray: [UIButton]! {
         didSet {
             for b in buttonsArray {
-                b.setImage(UIImage(systemName:"circle"), for: .normal)
-                b.setImage(UIImage(systemName:"circle.fill"), for: .selected)
+              //  b.setImage(UIImage(systemName:"circle"), for: .normal)
+               // b.setImage(UIImage(systemName:"circle.fill"), for: .selected)
             }
         }
     }
@@ -19,6 +19,8 @@ class RadioButtonController: NSObject {
     var defaultButton: UIButton = UIButton() {
         didSet {
             buttonArrayUpdated(buttonSelected: self.defaultButton)
+            
+            
         }
     }
 

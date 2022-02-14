@@ -48,6 +48,15 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+        title = "Industrial Chronometer"
+        let appearence =  UINavigationBar.appearance()
+        appearence.barTintColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
+        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+    
+        //menu butonu eklemek
+        let menu =  UIBarButtonItem (barButtonSystemItem: .organize, target: self, action: #selector(callSettingsMenu))
+        
+        self.navigationItem.leftBarButtonItem = menu
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController]
@@ -57,14 +66,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             
             
         }
-        //        let firstVC = storyboard?.instantiateViewController(withIdentifier: "ChronoViewController") as! ViewController
-        //        let secondVC = storyboard?.instantiateViewController(withIdentifier: "ChartViewController") as! ChartViewController
-        //
-        //        firstVC.delegate = secondVC
-        //
-        //        orderedViewControllers.append(firstVC)
-        //        orderedViewControllers.append(secondVC)
-        // Do any additional setup after loading the view.
+       
+    }
+    @objc func callSettingsMenu (){
+        
+        self.performSegue(withIdentifier: "toSettingsMenu", sender: nil)
+        
     }
     
     
@@ -72,7 +79,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         
         return [self.callViewController ( order: "Chrono" ),
                 self.callViewController ( order: "Chart" ),
-                self.callViewController ( order: "About" )  ]
+                self.callViewController ( order: "FileList" )  ]
     }()
     
     func callViewController (order : String )-> UIViewController {

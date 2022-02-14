@@ -5,6 +5,8 @@
 //  Created by ulas özalp on 3.02.2022.
 //
 
+// fontlar için https://codewithchris.com/common-mistakes-with-adding-custom-fonts-to-your-ios-app/
+
 import UIKit
 import Charts
 import TinyConstraints
@@ -19,6 +21,7 @@ class ChartViewController: UIViewController {
     }()
     //  let button :UIButton = UIButton (frame: CGRect (x: 100, y: 100, width:150 , height: 180))
     
+    @IBOutlet weak var containerView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("NewFunctionName"), object: nil)
@@ -30,10 +33,11 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-           self.view.addSubview(lineChartView)
-            lineChartView.centerInSuperview()
-            lineChartView.width(to: self.view)
-            lineChartView.heightToWidth(of: self.view)
+        self.containerView.addSubview(lineChartView)
+        lineChartView.edgesToSuperview()
+          //  lineChartView.centerInSuperview()
+         //   lineChartView.width(to: self.view)
+           // lineChartView.heightToWidth(of: self.view)
         
     }
     @objc func functionName (notification: NSNotification){
@@ -55,7 +59,10 @@ class ChartViewController: UIViewController {
         
         
         var dataFromChrono: [Float]
+        var unitFromChrono : String
+        unitFromChrono = TransferService.sharedInstance.timeUnitToTransfer
         dataFromChrono = TransferService.sharedInstance.lapDataToTransfer
+        
         print("değer \(dataFromChrono)")
         if  dataFromChrono.count != 0
         {
@@ -81,13 +88,14 @@ class ChartViewController: UIViewController {
             
             var tmax, tmin, tave : ChartLimitLine
             
-            tmax = ChartLimitLine (limit: Double(dataFromChrono.max()!), label: "Max.Cyc Time")
-            tmin = ChartLimitLine (limit: Double(dataFromChrono.min()!),label: "Min.Cyc Time")
-            tave = ChartLimitLine(limit: Double(meanData), label: "Mean Cycle Time")
+            tmax = ChartLimitLine (limit: Double(dataFromChrono.max()!), label: " Max.Cyc Time \(String( format: "%.2f",Double(dataFromChrono.max()!) )) \(unitFromChrono)")
+            tmin = ChartLimitLine (limit: Double(dataFromChrono.min()!),label: "Min.Cyc Time \(String( format: "%.2f",Double(dataFromChrono.min()!) )) \(unitFromChrono)")
+            tave = ChartLimitLine(limit: Double(meanData), label: "Mean Cycle Time \(String( format: "%.2f",Double(meanData) )) \(unitFromChrono)")
+            
             
             tmax.lineWidth = 2.0
-            tmin.lineWidth = 1.0
-            tave.lineWidth = 1.0
+            tmin.lineWidth = 2.0
+            tave.lineWidth = 2.0
             tave.lineColor = UIColor.green
             tmax.lineColor = UIColor.red
             tmin.lineColor = UIColor.red
