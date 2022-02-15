@@ -13,7 +13,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     let radioController: RadioButtonController = RadioButtonController()
     var m = 0 ,h = 0, lapNumber = 0, modul = 0.0 , milis = 0, counter  = 0
-    var hh = "",mm = "", ss = ""
+  
     var timeUnit = ""
     
     var startTime : Date? = nil
@@ -30,7 +30,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var numberOfLap = 0 // laplistesinde lap numarasını göstermek için lazım
     var totalTimeArrayForLapList : [String] = [] // laplistede total time görünmesi için
     var lapListLapNumberValue : [Int] = []    // laplistesinde lap numarasını göstermek için lazım
-    
+    var csvString  = ""
     @IBOutlet weak var lapListTableView: UITableView!
     
     
@@ -73,13 +73,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     
     @IBAction func saveToFile(_ sender: Any) {
-        
-        var csvString = "Lap Time \(timeUnit)" //("\(lapsVal.cycleTime) \n")
-        
-        for totalString in lapsVal.cycleTime
-        {
-            csvString = csvString.appending("\(String(totalString)) \n")
-        }
+     
+       
         
         // file Name enter
         let fileNameAlert = UIAlertController (title: "Save Datas", message: "", preferredStyle: .alert)
@@ -90,20 +85,21 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         fileNameAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak fileNameAlert] (_) in
             guard let textField = fileNameAlert?.textFields?[0],
                   let fileName = textField.text
-                    
+                  
+            
                     
             else {return}
             if (fileName.isEmpty){
                 return
             }
             else {
-                TransferService.sharedInstance.saveTo(name: fileName, csvString: csvString)
+                TransferService.sharedInstance.saveTo(name: fileName, csvString: self.csvString)
             }
             
             
             
         }))
-        
+       
         fileNameAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(fileNameAlert, animated: true, completion: nil)
@@ -117,7 +113,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         title = "ulas"
         
         timeLabel.text = "00:00:00"
-        
+    
         
         self.tabBarController?.delegate = self
         
@@ -208,10 +204,10 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         maxCycTimeLabel.text = "\(String( format: "%.2f",max )) \(timeUnit)"
         aveCycTimeLabel.text = "\(String( format: "%.2f",ave )) \(timeUnit)"
         
-//        minCycTimeLabel.text = "Min.Cycle Time : \(String( format: "%.2f",min )) \(timeUnit)"
-//        maxCycTimeLabel.text = "Max.Cycle Time : \(String( format: "%.2f",max )) \(timeUnit)"
-//        aveCycTimeLabel.text = "Ave.Cycle Time : \(String( format: "%.2f",ave ) )\(timeUnit)"
-//
+        //        minCycTimeLabel.text = "Min.Cycle Time : \(String( format: "%.2f",min )) \(timeUnit)"
+        //        maxCycTimeLabel.text = "Max.Cycle Time : \(String( format: "%.2f",max )) \(timeUnit)"
+        //        aveCycTimeLabel.text = "Ave.Cycle Time : \(String( format: "%.2f",ave ) )\(timeUnit)"
+        //
         var cycPerMinute = lapsVal.CalculateCycleTimePerMinute(laps: lapsVal.cycleTime)
         
         var cycPerHour = lapsVal.CalculateCycleTimePerHour(laps: lapsVal.cycleTime)
@@ -227,10 +223,27 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
          */
         dataTransfer.timeUnitToTransfer = timeUnit
         dataTransfer.lapDataToTransfer.append(lapsVal.cycleTime[lapNumber] * Float(milis))
+     
+        // burası laplisttableview da sondan basa doğru yazdırmak için
+        // lapları sondan başa yazdırmak burada olmaz. o zaman grafikler ters çıkar.
+        lapListLapNumberValue.insert(lapNumber + 1, at: 0) // lap numarası
+        totalTimeArrayForLapList.insert(lap.LapToString(laps: laps[lapNumber]), at: 0) // total ölçüm zamanı
         
+        csvString = "Time Study Data Report \n"
+        csvString = csvString.appending("Date, \(startTime) \n" )
+        csvString = csvString.appending("Time Unit,\(timeUnit) \n ")
+        //csvString = csvString.appending("Lap Time " )//("\(lapsVal.cycleTime) \n")
+        
+        
+        for totalString in lapsVal.cycleTime
+        {
+            csvString = csvString.appending("Lap No , Lap Time , Cycle Time as \(timeUnit) \n")
+            csvString = csvString.appending("\(lapNumber+1),\(String ((lap.LapToString(laps: laps[lapNumber])))),\(String(format:"%.2f",lapsVal.cycleTime[lapNumber] * Float(milis))) \n")
+
+            
+        }
         lapNumber += 1
-        lapListLapNumberValue.insert(lapNumber, at: 0)
-        print ("lap number \(lapListLapNumberValue)")
+        
         lapListTableView.reloadData()
     }
     
@@ -254,9 +267,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.h = 0
             self.m = 0
             self.timeLabel.text = "00:00:00"
-            self.maxCycTimeLabel.text = "Max.Cycle Time :"
-            self.minCycTimeLabel.text = "Min.Cycle Time :"
-            self.aveCycTimeLabel.text = "Ave.Cycle Time :"
+            self.maxCycTimeLabel.text = ""
+            self.minCycTimeLabel.text = ""
+            self.aveCycTimeLabel.text = ""
             self.cycPerHourLabel.text = ""
             self.cycPerMinuteLabel.text = ""
             self.observationTimer.text = ""
@@ -299,7 +312,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         stopTime = lapsVal.setMomentTime()
         titleButton = "Start"
-        let observationTime =  lapsVal.getObservationTime(start: startTime!, end: stopTime!)
+        let observationTime = lapsVal.getObservationTime(start: startTime!, end: stopTime!)
         observationTimer.text = observationTime
         
         
@@ -318,7 +331,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                 timer = Timer.scheduledTimer(timeInterval: modul/100, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
                 
                 if !(isPlaying) {
-                    startTime = lapsVal.setMomentTime()
+                    startTime = lapsVal.setMomentTime() // başladığı anın değeri
                 }
                 
                 
@@ -371,12 +384,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             h += 1
             m = 0
         }
-        hh = h < 10 ? "0" + String (h) : String (h) + ""
-        mm = m < 10 ? "0" + String (m) : String (m) + ""
-        ss = counter < 10 ? "0" + String(counter):String( Int(counter)%Int(milis)) + ""
-        
+      
+//        hh = h < 10 ? "0" + String (h) : String (h) + ""
+//        mm = m < 10 ? "0" + String (m) : String (m) + ""
+//        ss = counter < 10 ? "0" + String(counter):String( Int(counter)%Int(milis)) + ""
+
         //timeLabel.text = String( format: "%.2f",counter)
-        timeLabel.text = String ( hh + ":" + mm + ":" + ss)
+        timeLabel.text = (String ( format: "%02ld:%02ld:%02ld" ,h,m,counter)) //String ( hh + ":" + mm + ":" + ss)
+       
     }
     
     func transferLapToChart (lapnumber : Int){
@@ -393,31 +408,24 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let lapCell = self.lapListTableView.dequeueReusableCell(withIdentifier: "lapList", for: indexPath) as! LapListCellTableViewCell
         
-        // her ekleme yaparken sayıyı bir arttıracak
-        stopTime = lapsVal.setMomentTime()
+     
+    
+        //        if #available(iOS 14.0, *) {
+        //            var contentLapList = lapCell.defaultContentConfiguration()
+        //            var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
+        //
+        //            lapCell.lapValueLabel!.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
+        //
+        //            lapCell.lapNumberLabel.text = String (reverseOrderedLaps.count)
+        //            lapCell.contentConfiguration = contentLapList
+        //        } else {
+        var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
+        
+        lapCell.lapValueLabel.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
+        lapCell.lapNumberLabel.text = String(lapListLapNumberValue[indexPath.row])
+        lapCell.totalTimeLabel.text = totalTimeArrayForLapList[indexPath.row]
         
         
-        totalTimeArrayForLapList.append( lapsVal.getObservationTime(start: startTime!, end: stopTime!))
-        totalTimeArrayForLapList = Array(totalTimeArrayForLapList.reversed())
-      
-        
-        
-//        if #available(iOS 14.0, *) {
-//            var contentLapList = lapCell.defaultContentConfiguration()
-//            var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
-//
-//            lapCell.lapValueLabel!.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
-//
-//            lapCell.lapNumberLabel.text = String (reverseOrderedLaps.count)
-//            lapCell.contentConfiguration = contentLapList
-//        } else {
-            var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
-            
-            lapCell.lapValueLabel.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
-            lapCell.lapNumberLabel.text = String(lapListLapNumberValue[indexPath.row])
-            lapCell.totalTimeLabel.text = totalTimeArrayForLapList[indexPath.row]
-            
-            
         //}
         
         return lapCell

@@ -15,8 +15,13 @@ class TransferService {
     var lapDataToTransfer : [Float] = []
     var timeUnitToTransfer : String = ""
     var fileList : [String] = []
+    
+    
     func saveTo (name: String , csvString:  String )
     {
+        
+        //dosyaları bulunduğu yerden alığ bir string dizi yaratıyor.
+        // bu diziye daha sonra filelistetableview içinde bir array a atayacaksın
         let fileManager = FileManager.default
       
         do{
@@ -45,6 +50,7 @@ class TransferService {
     func getSavedFile () ->  [String] {
         
         let fileManager = FileManager.default
+        fileList.removeAll()
         do{
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
            
@@ -58,7 +64,7 @@ class TransferService {
                         
                 {
                     self.fileList.append(item.lastPathComponent)
-                    print("Found \(item)")
+                    //print("Found \(item)")
                 }
                         
             } catch {

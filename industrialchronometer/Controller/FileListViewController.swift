@@ -15,6 +15,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         fileList.reloadData()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fileList.delegate = self
@@ -32,6 +33,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
         longPressGesture.delegate = self
         self.fileList.addGestureRecognizer(longPressGesture)
         
+       
         fileList.reloadData()
         
         // Do any additional setup after loading the view.
@@ -47,7 +49,11 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     @objc func refresh(){
         print("refreshing")
-        fileList.reloadData()
+        DispatchQueue.main.async {
+            self.fileListArray.removeAll()
+            self.fileListArray =  TransferService.sharedInstance.getSavedFile()
+            self.fileList.reloadData()
+        }
         refreshControl.endRefreshing()
     }
     

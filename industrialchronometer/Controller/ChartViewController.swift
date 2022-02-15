@@ -66,8 +66,8 @@ class ChartViewController: UIViewController {
         print("değer \(dataFromChrono)")
         if  dataFromChrono.count != 0
         {
-            var YValues : [ChartDataEntry] = [ChartDataEntry(x: 0.0, y: 0.0)]//
-            var x = 0.0
+            var YValues = [ChartDataEntry]() // = [ChartDataEntry(x: 0.0, y: 0.0)]//
+            var x = 1.0
             var sumData = 0.0
             
             print("değer \(dataFromChrono)")
@@ -75,16 +75,17 @@ class ChartViewController: UIViewController {
          
             
             while Int(x) < dataFromChrono.count {
-                YValues.append(ChartDataEntry (x: x+1, y: Double(dataFromChrono[Int(x)])))
+                YValues.append(ChartDataEntry (x: x, y: Double(dataFromChrono[Int(x-1)])))
                 
                 sumData += Double(dataFromChrono[Int(x)])
-                
+               
                 x += 1
             }
             var meanData = ( (sumData) / Double((dataFromChrono.count)) )  //ilk data 0.0 olduğu için
             let set1 = LineChartDataSet (entries: YValues, label: "Cycle time" )
             
             let data = LineChartData(dataSet: set1)
+            data.setValueFont(UIFont(name: "DS-Digital", size: 12.0)!)
             
             var tmax, tmin, tave : ChartLimitLine
             
@@ -99,13 +100,23 @@ class ChartViewController: UIViewController {
             tave.lineColor = UIColor.green
             tmax.lineColor = UIColor.red
             tmin.lineColor = UIColor.red
-            print("max değer \(dataFromChrono.max()!*100)")
+            
+            
             let yAxis = lineChartView.leftAxis
             yAxis.removeAllLimitLines()
             yAxis.addLimitLine(tmax)
             yAxis.addLimitLine(tmin)
             yAxis.addLimitLine(tave)
             yAxis.drawLimitLinesBehindDataEnabled = true
+            yAxis.labelFont = UIFont(name: "DS-Digital", size: 12.0)!
+            
+            
+            let yAxisRight = lineChartView.rightAxis
+            yAxisRight.labelFont = UIFont(name: "DS-Digital", size: 12.0)!
+            let xAxis = lineChartView.xAxis
+            xAxis.granularity = 1
+            xAxis.drawAxisLineEnabled = true
+            xAxis.drawLabelsEnabled = true
             
             lineChartView.data = data
             
