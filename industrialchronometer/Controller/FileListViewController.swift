@@ -43,7 +43,13 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
        
         // Make the activityViewContoller which shows the share-view
         let activityViewController = UIActivityViewController(activityItems: TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected), applicationActivities: nil)
-
+        /*
+         Share menu if user's Ipad is active
+         */
+        if  ((activityViewController.popoverPresentationController) != nil){
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.popoverPresentationController?.sourceRect = CGRect(x:self.view.bounds.midX, y: self.view.bounds.midY, width: 0,height: 0)
+        }
         // Show the share-view
         self.present(activityViewController, animated: true, completion: nil)
     }

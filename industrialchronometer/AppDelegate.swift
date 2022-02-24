@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-    
-//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+       
+        //        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
 //
 //
 //        let navItem = UINavigationItem(title: "SomeTitle")

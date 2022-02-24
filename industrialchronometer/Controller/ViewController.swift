@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFoundation
+import MediaPlayer
 
 
 
@@ -13,18 +15,23 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     let radioController: RadioButtonController = RadioButtonController()
     var m = 0 ,h = 0, lapNumber = 0, modul = 0.0 , milis = 0, counter  = 0
-  
+    var max = 0.0, min = 0.0, ave = 0.0,cycPerMinute = 0.0, cycPerHour = 0.0
+    var observationTime : String = " "
     var timeUnit = ""
-    
-    var startTime : Date? = nil
-    var stopTime : Date? = nil
+    var volumeValue : Float = 0.0
+    var startTime = Date()
+    var stopTime : Date!
     var laps = [Laps]()
+    var pauseLap = false
+    
+    var sendingLapToCSVD = Laps.init(hour: 0, minute: 0, second: 0)
+    
     
     var lapsVal = LapsVal.init(cycleTime: [])//lapsVal LapsVal içinde float bir dizi olacak
     
     var timer = Timer()
     
-    var isPlaying = false
+    var isPlaying = false , isPaused = false
     var titleButton = "Start"
     let dataTransfer = TransferService.sharedInstance
     var numberOfLap = 0 // laplistesinde lap numarasını göstermek için lazım
@@ -73,8 +80,19 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     
     @IBAction func saveToFile(_ sender: Any) {
-     
-       
+        csvString = sendingLapToCSVD.CreateCSV(startTime: startTime,
+                                               timeUnit: timeUnit,
+                                               lapsVal: lapsVal.cycleTime,
+                                               lapToString: laps ,
+                                               milis: Float(milis),
+                                               maximumCycleTime: (String( format: "%.2f",max )) ,
+                                               minimumCycleTime: (String( format: "%.2f",min )) ,
+                                               averageCycleTime: (String( format: "%.2f",ave )) ,
+                                               totalStudyTime : observationTime,
+                                               totalCycleTime :  totalTimeArrayForLapList[0],
+                                               cyclePerMinute: String( format: "%.2f",(cycPerMinute) ),
+                                               cyclePerHour : String( format: "%.2f",(cycPerHour) ))
+        
         
         // file Name enter
         let fileNameAlert = UIAlertController (title: "Save Datas", message: "", preferredStyle: .alert)
@@ -85,8 +103,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         fileNameAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak fileNameAlert] (_) in
             guard let textField = fileNameAlert?.textFields?[0],
                   let fileName = textField.text
-                  
-            
+                    
+                    
                     
             else {return}
             if (fileName.isEmpty){
@@ -99,7 +117,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             
             
         }))
-       
+        
         fileNameAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(fileNameAlert, animated: true, completion: nil)
@@ -107,13 +125,33 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        listenVolumeButton()
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "ulas"
         
+        /*
+         Notificationu takip ediyor.Geldikçe selector fonksiyonunu tetikliyor
+         */
+        let notificationCenter : NotificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.pauseLapOnOff), name: .pauseLapOff , object: nil)
+        
+     
+        title = "Industrial Chronometer"
+        
+        /*
+         pause Lap control
+         
+         *******/
+      
+        
+        //******
         timeLabel.text = "00:00:00"
-    
+        
         
         self.tabBarController?.delegate = self
         
@@ -160,9 +198,21 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         lapListTableView.dataSource = self
         
     }
-    @objc func selectorName () {
-        
+    @objc func pauseLapOnOff () {
+     
+        let userDefault = UserDefaults.standard
+        if pauseLap == false {
+            pauseLap = true
+        print( "pauseLap is ON")
+            userDefault.setValueForSwitch(value: true)
+           
+        }else {
+            pauseLap = false
+            print( "pauseLap is Off")
+            userDefault.setValueForSwitch(value: false)
+        }
     }
+    
     @IBAction func takeLap(_ sender: Any) {
         
         
@@ -196,21 +246,17 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             
         }
         
-        let max =  (lapsVal.GetMaximumOfLaps(laps: lapsVal.cycleTime) ) * (Float(milis))
+        max =  Double((lapsVal.GetMaximumOfLaps(laps: lapsVal.cycleTime) ) * (Float(milis)))
         
-        let min =  (lapsVal.GetMinimumOfLaps(laps: lapsVal.cycleTime)) * (Float(milis))
-        let ave = ( lapsVal.GetMeanOfLaps(laps: lapsVal.cycleTime) ) * (Float(milis))
+        min =  Double((lapsVal.GetMinimumOfLaps(laps: lapsVal.cycleTime)) * (Float(milis)))
+        ave = Double(( lapsVal.GetMeanOfLaps(laps: lapsVal.cycleTime) ) * (Float(milis)))
         minCycTimeLabel.text = "\(String( format: "%.2f",min )) \(timeUnit)"
         maxCycTimeLabel.text = "\(String( format: "%.2f",max )) \(timeUnit)"
         aveCycTimeLabel.text = "\(String( format: "%.2f",ave )) \(timeUnit)"
         
-        //        minCycTimeLabel.text = "Min.Cycle Time : \(String( format: "%.2f",min )) \(timeUnit)"
-        //        maxCycTimeLabel.text = "Max.Cycle Time : \(String( format: "%.2f",max )) \(timeUnit)"
-        //        aveCycTimeLabel.text = "Ave.Cycle Time : \(String( format: "%.2f",ave ) )\(timeUnit)"
-        //
-        var cycPerMinute = lapsVal.CalculateCycleTimePerMinute(laps: lapsVal.cycleTime)
+        cycPerMinute = Double(lapsVal.CalculateCycleTimePerMinute(laps: lapsVal.cycleTime))
         
-        var cycPerHour = lapsVal.CalculateCycleTimePerHour(laps: lapsVal.cycleTime)
+        cycPerHour = Double(lapsVal.CalculateCycleTimePerHour(laps: lapsVal.cycleTime))
         
         
         cycPerMinuteLabel.text = String( format: "%.2f",(cycPerMinute) )
@@ -223,25 +269,16 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
          */
         dataTransfer.timeUnitToTransfer = timeUnit
         dataTransfer.lapDataToTransfer.append(lapsVal.cycleTime[lapNumber] * Float(milis))
-     
+        
         // burası laplisttableview da sondan basa doğru yazdırmak için
         // lapları sondan başa yazdırmak burada olmaz. o zaman grafikler ters çıkar.
         lapListLapNumberValue.insert(lapNumber + 1, at: 0) // lap numarası
         totalTimeArrayForLapList.insert(lap.LapToString(laps: laps[lapNumber]), at: 0) // total ölçüm zamanı
         
-        csvString = "Time Study Data Report \n"
-        csvString = csvString.appending("Date, \(startTime) \n" )
-        csvString = csvString.appending("Time Unit,\(timeUnit) \n ")
-        //csvString = csvString.appending("Lap Time " )//("\(lapsVal.cycleTime) \n")
         
         
-        for totalString in lapsVal.cycleTime
-        {
-            csvString = csvString.appending("Lap No , Lap Time , Cycle Time as \(timeUnit) \n")
-            csvString = csvString.appending("\(lapNumber+1),\(String ((lap.LapToString(laps: laps[lapNumber])))),\(String(format:"%.2f",lapsVal.cycleTime[lapNumber] * Float(milis))) \n")
-
-            
-        }
+        
+        
         lapNumber += 1
         
         lapListTableView.reloadData()
@@ -251,6 +288,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     
     @IBAction func resetTimer(_ sender: Any) {
+        
+        
+        
         
         //alert yaratma
         let resetAlert = UIAlertController (title:"Clear All Data", message: "Would you like to reset your study ?", preferredStyle: .alert)
@@ -263,6 +303,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.radioController.buttonsArray[1].isEnabled = true
             self.timer.invalidate()
             self.isPlaying = false
+            self.isPaused = false
             self.counter = 0
             self.h = 0
             self.m = 0
@@ -280,14 +321,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.lapsVal.cycleTime.removeAll()
             self.lapNumber = 0
             self.radioController.selectedButton?.isSelected = false
-            self.stopTime = nil
-            self.startTime = nil
+            // self.stopTime = nil
+            // self.startTime = nil
             self.isPlaying = false
             self.startButton.setTitle("Start", for: .normal)
             self.dataTransfer.lapDataToTransfer.removeAll()
             self.lapListTableView.reloadData()
             
-            NotificationCenter.default.post(name: Notification.Name("NewFunctionName"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("ResetTimer"), object: nil)
         }))
         
         resetAlert.addAction(UIAlertAction(title:" Cancel",style: .default,handler: nil))
@@ -305,33 +346,39 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
     }
     func PauseTimer() {
+      
         
-        takeLap((Any).self)
+        if (pauseLap)  // kullanıcı bunu true/false yapabilr. true olursa durdurunca lap alır.
+        // default olarak false ayarlı
+        {takeLap((Any).self)}
+        
         timer.invalidate()
         startButton.setTitle("Continue", for: .normal)
         
         stopTime = lapsVal.setMomentTime()
         titleButton = "Start"
-        let observationTime = lapsVal.getObservationTime(start: startTime!, end: stopTime!)
+        observationTime = lapsVal.getObservationTime(start: startTime, end: stopTime)
         observationTimer.text = observationTime
-        
+        isPaused = true
+       
         
     }
     
     @IBAction func startTimer(_ sender: Any) {
         if (modul > 0 ){
-            
+            isPlaying = true
             switch (titleButton){
                 
             case ("Start"):
                 startButton.setTitle("Pause", for: .normal)
                 titleButton = "Pause"
-                
+                isPaused = false
                 
                 timer = Timer.scheduledTimer(timeInterval: modul/100, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
                 
                 if !(isPlaying) {
                     startTime = lapsVal.setMomentTime() // başladığı anın değeri
+                    print(startTime)
                 }
                 
                 
@@ -341,7 +388,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                 resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
                 saveButton.isEnabled = false
                 saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
-                isPlaying = true
+                
                 if (modul == 60 ){
                     radioController.buttonsArray[0].isEnabled = false
                 }else {
@@ -356,6 +403,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                 resetTimer.backgroundColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
                 saveButton.isEnabled = true
                 saveButton.backgroundColor  = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
+                isPlaying = false
                 PauseTimer()
                 break
                 
@@ -384,19 +432,15 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             h += 1
             m = 0
         }
-      
-//        hh = h < 10 ? "0" + String (h) : String (h) + ""
-//        mm = m < 10 ? "0" + String (m) : String (m) + ""
-//        ss = counter < 10 ? "0" + String(counter):String( Int(counter)%Int(milis)) + ""
-
-        //timeLabel.text = String( format: "%.2f",counter)
-        timeLabel.text = (String ( format: "%02ld:%02ld:%02ld" ,h,m,counter)) //String ( hh + ":" + mm + ":" + ss)
+        
        
+        timeLabel.text = (String ( format: "%02ld:%02ld:%02ld" ,h,m,counter)) //String ( hh + ":" + mm + ":" + ss)
+        
     }
     
     func transferLapToChart (lapnumber : Int){
         
-        let destination = storyboard?.instantiateViewController(withIdentifier: "ChartViewController") as! ChartViewController
+        _ = storyboard?.instantiateViewController(withIdentifier: "ChartViewController") as! ChartViewController
         
         
     }
@@ -408,8 +452,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let lapCell = self.lapListTableView.dequeueReusableCell(withIdentifier: "lapList", for: indexPath) as! LapListCellTableViewCell
         
-     
-    
+        
+        
         //        if #available(iOS 14.0, *) {
         //            var contentLapList = lapCell.defaultContentConfiguration()
         //            var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
@@ -419,7 +463,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         //            lapCell.lapNumberLabel.text = String (reverseOrderedLaps.count)
         //            lapCell.contentConfiguration = contentLapList
         //        } else {
-        var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
+        let reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
         
         lapCell.lapValueLabel.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
         lapCell.lapNumberLabel.text = String(lapListLapNumberValue[indexPath.row])
@@ -432,7 +476,90 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
     }
     
+    /*
+     * this part for volume key controls
+     * listenVolumeButton is to observe one of volume keys pressed ,then it changes volume level
+     * observalue volume key pressed assign method
+     * MPVolumeView extension to set new value of volume level
+     */
+    private var audioLevel : Float = 0.0
+    func listenVolumeButton() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do
+        {
+            try audioSession.setActive(true, options: [])
+            audioSession.addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.new, context: nil)
+            audioLevel = audioSession.outputVolume
+        }
+        catch {
+            print("Error \(error)")
+        }
+        
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "outputVolume"{
+            let audioSession = AVAudioSession.sharedInstance()
+            if audioSession.outputVolume > audioLevel {
+                if !(isPaused){
+                    startTimer(UIButton.self)
+                }else {
+                    PauseTimer()
+                }
+               
+            }
+            if audioSession.outputVolume < audioLevel {
+                //take lap
+                
+            }
+            
+            audioLevel = audioSession.outputVolume
+            
+            if audioSession.outputVolume > 0.999 {
+                MPVolumeView.setVolume(0.999)
+                print("volume maxi")
+                //
+                audioLevel = 0.9375
+            }
+            if audioSession.outputVolume < 0.0625 {
+                MPVolumeView.setVolume(0.0625)
+                print("volume mini")
+                //
+                audioLevel = 0.0625
+                
+            }
+            
+        }
+        
+    }
     
+    
+}
+extension MPVolumeView {
+    static func setVolume(_ volume : Float){
+        let volumeView = MPVolumeView()
+        let slider  = volumeView.subviews.first(where: {$0 is UISlider}) as? UISlider
+        
+        DispatchQueue.main.asyncAfter(deadline : DispatchTime.now() + 0.1 ) {
+            slider?.value = volume
+        }
+    }
+}
+extension UserDefaults {
+    /*
+     USer defaults ta anahtar nokta set etme işlemini doğrudan değil bir değişkene atayarak yap
+     aksi durumda o değeri tutmuyor. let olarak değil var olarak yazdırman lazım
+     */
+    func setValueForSwitch(value : Bool?){
+        if value != nil{
+           var PauseLap = UserDefaults.standard.set(value, forKey: "PauseLap")
+        } else {
+           UserDefaults.standard.removeObject(forKey: "PauseLap")
+        }
+    }
+    
+    func getValueForSwitch() -> Bool? {
+        return UserDefaults.standard.bool(forKey: "PauseLap")
+    }
 }
 /*
  timeInterval değeri 1 ise 1 snde 1 artırır. 0.6 yaparsan cmin oluyor
@@ -444,4 +571,4 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
 //        if let segu  = segue.destination as? ChartViewController {
 //            segu.delegate = self
 //            segu.deger = getKey()
-//        }
+

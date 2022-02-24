@@ -18,7 +18,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return orderedViewControllers.last
+            return   nil // burayı orderedViewControllers.last yaparsan tekrar son sayfaya gelir
         }
         
         guard orderedViewControllers.count > previousIndex else {

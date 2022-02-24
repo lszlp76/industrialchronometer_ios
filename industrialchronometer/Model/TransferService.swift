@@ -86,7 +86,7 @@ class TransferService {
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
            
             let defaultFld = path.appendingPathComponent("Industrial Chronometer")
-            let defaultFolder = defaultFld.absoluteString
+            _ = defaultFld.absoluteString
             do {
                 let items = try fileManager.contentsOfDirectory(at: defaultFld ,includingPropertiesForKeys: nil)
                
@@ -118,7 +118,7 @@ class TransferService {
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
            
             let defaultFld = path.appendingPathComponent("Industrial Chronometer")
-            let defaultFolder = defaultFld.absoluteString
+            _ = defaultFld.absoluteString
             do {
                 let items = try fileManager.contentsOfDirectory(at: defaultFld ,includingPropertiesForKeys: nil)
                 
@@ -144,4 +144,5 @@ class TransferService {
         
         return fileToShare
     }
+    
 }

@@ -9,7 +9,7 @@ import Foundation
 class RadioButtonController: NSObject {
     var buttonsArray: [UIButton]! {
         didSet {
-            for b in buttonsArray {
+            for _ in buttonsArray {
               //  b.setImage(UIImage(systemName:"circle"), for: .normal)
                // b.setImage(UIImage(systemName:"circle.fill"), for: .selected)
             }

@@ -10,6 +10,7 @@
 		0314B1465D788EB5C9FFB427 /* Pods_industrialchronometerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296E43AD8E6076CFA6B133D4 /* Pods_industrialchronometerTests.framework */; };
 		99F27C9A02EE8BD6CF3612FF /* Pods_industrialchronometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */; };
 		9D5562E141F3ECE000BFA7DF /* Pods_industrialchronometer_industrialchronometerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322255DB7DE8AFF9C21DAE0F /* Pods_industrialchronometer_industrialchronometerUITests.framework */; };
+		F926833427C0ED0500EC8DF8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926833327C0ED0500EC8DF8 /* WebViewController.swift */; };
 		F92DFA2127A87C5B0094E17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2027A87C5B0094E17D /* AppDelegate.swift */; };
 		F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */; };
 		F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2427A87C5B0094E17D /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2827ABFD2800700533 /* AboutViewController.swift */; };
 		F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */; };
 		F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F96FD0B327B281C400242AA8 /* Digital.ttf */; };
+		F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */ = {isa = PBXBuildFile; fileRef = F9847B9E27C7DD8F00D56BE6 /* todolist */; };
 		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
 		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
 		F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */; };
@@ -58,6 +60,7 @@
 		CFB421D68A2FF78A14103091 /* Pods-industrialchronometerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometerTests.release.xcconfig"; path = "Target Support Files/Pods-industrialchronometerTests/Pods-industrialchronometerTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBCCC1FF6DA18EEA2AA81590 /* Pods-industrialchronometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer.release.xcconfig"; path = "Target Support Files/Pods-industrialchronometer/Pods-industrialchronometer.release.xcconfig"; sourceTree = "<group>"; };
 		EC2A842BB406D1E569F37C3A /* Pods-industrialchronometer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer.debug.xcconfig"; path = "Target Support Files/Pods-industrialchronometer/Pods-industrialchronometer.debug.xcconfig"; sourceTree = "<group>"; };
+		F926833327C0ED0500EC8DF8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F92DFA1D27A87C5B0094E17D /* industrialchronometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = industrialchronometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F92DFA2027A87C5B0094E17D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		F950FE2827ABFD2800700533 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapListCellTableViewCell.swift; sourceTree = "<group>"; };
 		F96FD0B327B281C400242AA8 /* Digital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Digital.ttf; path = ../../../Digital.ttf; sourceTree = "<group>"; };
+		F9847B9E27C7DD8F00D56BE6 /* todolist */ = {isa = PBXFileReference; lastKnownFileType = text; path = todolist; sourceTree = "<group>"; };
 		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		F92DFA1427A87C5B0094E17D = {
 			isa = PBXGroup;
 			children = (
+				F9847B9E27C7DD8F00D56BE6 /* todolist */,
 				F92DFA1F27A87C5B0094E17D /* industrialchronometer */,
 				F92DFA3627A87C5C0094E17D /* industrialchronometerTests */,
 				F92DFA4027A87C5C0094E17D /* industrialchronometerUITests */,
@@ -201,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F92DFA5027A885480094E17D /* RadioButtonController.swift */,
+				F926833327C0ED0500EC8DF8 /* WebViewController.swift */,
 				F92DFA2427A87C5B0094E17D /* ViewController.swift */,
 				F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */,
 				F950FE2627ABFD1D00700533 /* ChartViewController.swift */,
@@ -341,6 +347,7 @@
 				F92DFA2D27A87C5C0094E17D /* LaunchScreen.storyboard in Resources */,
 				F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */,
 				F92DFA2A27A87C5C0094E17D /* Assets.xcassets in Resources */,
+				F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */,
 				F92DFA2827A87C5B0094E17D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +487,7 @@
 				F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */,
 				F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */,
 				F93FBAD327B1887100622C54 /* TransferService.swift in Sources */,
+				F926833427C0ED0500EC8DF8 /* WebViewController.swift in Sources */,
 				F9B1BD5027A911420062B161 /* Laps.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

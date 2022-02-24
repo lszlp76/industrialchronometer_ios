@@ -24,7 +24,8 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("NewFunctionName"), object: nil)
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("ResetTimer"), object: nil)
         
         
     setData()
@@ -38,7 +39,7 @@ class ChartViewController: UIViewController {
           //  lineChartView.centerInSuperview()
          //   lineChartView.width(to: self.view)
            // lineChartView.heightToWidth(of: self.view)
-        
+        setData()
     }
     @objc func functionName (notification: NSNotification){
        
@@ -56,26 +57,26 @@ class ChartViewController: UIViewController {
     
     func setData(){
         
-        
+        var tmax, tmin, tave : ChartLimitLine
         
         var dataFromChrono: [Float]
         var unitFromChrono : String
         unitFromChrono = TransferService.sharedInstance.timeUnitToTransfer
         dataFromChrono = TransferService.sharedInstance.lapDataToTransfer
         
-        print("değer \(dataFromChrono)")
+       // print("değer \(dataFromChrono)")
         if  dataFromChrono.count != 0
         {
             var YValues = [ChartDataEntry]() // = [ChartDataEntry(x: 0.0, y: 0.0)]//
-            var x = 1.0
+            var x = 0.0
             var sumData = 0.0
             
-            print("değer \(dataFromChrono)")
+           // print("değer \(dataFromChrono)")
            
          
             
             while Int(x) < dataFromChrono.count {
-                YValues.append(ChartDataEntry (x: x, y: Double(dataFromChrono[Int(x-1)])))
+                YValues.append(ChartDataEntry (x: x+1, y: Double(dataFromChrono[Int(x)])))
                 
                 sumData += Double(dataFromChrono[Int(x)])
                
@@ -87,7 +88,7 @@ class ChartViewController: UIViewController {
             let data = LineChartData(dataSet: set1)
             data.setValueFont(UIFont(name: "DS-Digital", size: 12.0)!)
             
-            var tmax, tmin, tave : ChartLimitLine
+           
             
             tmax = ChartLimitLine (limit: Double(dataFromChrono.max()!), label: " Max.Cyc Time \(String( format: "%.2f",Double(dataFromChrono.max()!) )) \(unitFromChrono)")
             tmin = ChartLimitLine (limit: Double(dataFromChrono.min()!),label: "Min.Cyc Time \(String( format: "%.2f",Double(dataFromChrono.min()!) )) \(unitFromChrono)")
