@@ -29,6 +29,7 @@
 		F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F96FD0B327B281C400242AA8 /* Digital.ttf */; };
 		F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */ = {isa = PBXBuildFile; fileRef = F9847B9E27C7DD8F00D56BE6 /* todolist */; };
 		F99595E827CA43CC00D95A72 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */; };
+		F99595EA27CA48F100D95A72 /* MPVolumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99595E927CA48F100D95A72 /* MPVolumExtension.swift */; };
 		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
 		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
 		F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */; };
@@ -85,6 +86,7 @@
 		F96FD0B327B281C400242AA8 /* Digital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Digital.ttf; path = ../../../Digital.ttf; sourceTree = "<group>"; };
 		F9847B9E27C7DD8F00D56BE6 /* todolist */ = {isa = PBXFileReference; lastKnownFileType = text; path = todolist; sourceTree = "<group>"; };
 		F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
+		F99595E927CA48F100D95A72 /* MPVolumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPVolumExtension.swift; sourceTree = "<group>"; };
 		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				F93FBAD227B1887100622C54 /* TransferService.swift */,
 				F9FAC28027CA0E0B000CE941 /* SettingIcon.swift */,
 				F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */,
+				F99595E927CA48F100D95A72 /* MPVolumExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				F93FBAD327B1887100622C54 /* TransferService.swift in Sources */,
 				F926833427C0ED0500EC8DF8 /* WebViewController.swift in Sources */,
 				F9B1BD5027A911420062B161 /* Laps.swift in Sources */,
+				F99595EA27CA48F100D95A72 /* MPVolumExtension.swift in Sources */,
 				F9FAC28127CA0E0B000CE941 /* SettingIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

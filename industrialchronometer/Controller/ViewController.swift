@@ -80,49 +80,56 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     
     @IBAction func saveToFile(_ sender: Any) {
-        csvString = sendingLapToCSVD.CreateCSV(startTime: startTime,
-                                               timeUnit: timeUnit,
-                                               lapsVal: lapsVal.cycleTime,
-                                               lapToString: laps ,
-                                               milis: Float(milis),
-                                               maximumCycleTime: (String( format: "%.2f",max )) ,
-                                               minimumCycleTime: (String( format: "%.2f",min )) ,
-                                               averageCycleTime: (String( format: "%.2f",ave )) ,
-                                               totalStudyTime : observationTime,
-                                               totalCycleTime :  totalTimeArrayForLapList[0],
-                                               cyclePerMinute: String( format: "%.2f",(cycPerMinute) ),
-                                               cyclePerHour : String( format: "%.2f",(cycPerHour) ))
-        
-        
-        // file Name enter
-        let fileNameAlert = UIAlertController (title: "Save Datas", message: "", preferredStyle: .alert)
-        fileNameAlert.addTextField { (textField) in
-            textField.placeholder = "Your file name..."
+        if laps.count != 0 {
+            csvString = sendingLapToCSVD.CreateCSV(startTime: startTime,
+                                                                    timeUnit: timeUnit,
+                                                                    lapsVal: lapsVal.cycleTime,
+                                                                    lapToString: laps ,
+                                                                    milis: Float(milis),
+                                                                    maximumCycleTime: (String( format: "%.2f",max )) ,
+                                                                    minimumCycleTime: (String( format: "%.2f",min )) ,
+                                                                    averageCycleTime: (String( format: "%.2f",ave )) ,
+                                                                    totalStudyTime : observationTime,
+                                                                    totalCycleTime :  totalTimeArrayForLapList[0],
+                                                                    cyclePerMinute: String( format: "%.2f",(cycPerMinute) ),
+                                                                    cyclePerHour : String( format: "%.2f",(cycPerHour) ))
+                             
+                             
+                             // file Name enter
+                             let fileNameAlert = UIAlertController (title: "Save Datas", message: "", preferredStyle: .alert)
+                             fileNameAlert.addTextField { (textField) in
+                                 textField.placeholder = "Your file name..."
+                             }
+                             
+                             fileNameAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak fileNameAlert] (_) in
+                                 guard let textField = fileNameAlert?.textFields?[0],
+                                       let fileName = textField.text
+                                         
+                                         
+                                         
+                                 else {return}
+                                 if (fileName.isEmpty){
+                                     return
+                                 }
+                                 else {
+                                     TransferService.sharedInstance.saveTo(name: fileName, csvString: self.csvString)
+                                 }
+                                 
+                                 
+                                 
+                             }))
+                             
+                             fileNameAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                             
+                             self.present(fileNameAlert, animated: true, completion: nil)
+                             
+                             }
+        else {
+            let noLapAlert = UIAlertController(title: "Laps not exist!", message: "You have to catch one lap at least", preferredStyle: .alert)
+            noLapAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(noLapAlert,animated: true,completion: nil)
         }
-        
-        fileNameAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak fileNameAlert] (_) in
-            guard let textField = fileNameAlert?.textFields?[0],
-                  let fileName = textField.text
-                    
-                    
-                    
-            else {return}
-            if (fileName.isEmpty){
-                return
-            }
-            else {
-                TransferService.sharedInstance.saveTo(name: fileName, csvString: self.csvString)
-            }
-            
-            
-            
-        }))
-        
-        fileNameAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        
-        self.present(fileNameAlert, animated: true, completion: nil)
-        
-        
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -327,6 +334,10 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.startButton.setTitle("Start", for: .normal)
             self.dataTransfer.lapDataToTransfer.removeAll()
             self.lapListTableView.reloadData()
+            self.saveButton.isEnabled = false
+            self.saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+            self.resetTimer.isEnabled = false
+            self.resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
             
             NotificationCenter.default.post(name: Notification.Name("ResetTimer"), object: nil)
         }))
@@ -533,16 +544,6 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     
     
-}
-extension MPVolumeView {
-    static func setVolume(_ volume : Float){
-        let volumeView = MPVolumeView()
-        let slider  = volumeView.subviews.first(where: {$0 is UISlider}) as? UISlider
-        
-        DispatchQueue.main.asyncAfter(deadline : DispatchTime.now() + 0.1 ) {
-            slider?.value = volume
-        }
-    }
 }
 
 /*

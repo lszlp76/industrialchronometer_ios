@@ -16,7 +16,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         }
         
         let previousIndex = viewControllerIndex - 1
-        
+        if previousIndex < 3 { title = "Industrial Chronometer"}
         guard previousIndex >= 0 else {
             return   nil // burayı orderedViewControllers.last yaparsan tekrar son sayfaya gelir
         }
@@ -33,6 +33,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return nil
         }
         let nextIndex = viewControllerIndex + 1
+        if nextIndex == 3 { title = "Saved Observations"}
         let orderedViewControllersCount = orderedViewControllers.count
         
         guard orderedViewControllersCount != nextIndex else {
