@@ -74,14 +74,14 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             cell?.icon.frame.size.height = CGFloat(settingIcon[indexPath.row].heigth!)
             cell?.icon.layer.borderColor = UIColor.lightGray.cgColor
             cell?.icon.layer.cornerRadius = 10
-            cell?.icon.layer.borderWidth = 1
+            cell?.icon.layer.borderWidth = 0
             cell?.selectionStyle = .none
             
 
         }else{
             cell?.icon.tintColor = settingIcon[indexPath.row+1].iconBackgroundColor
             cell?.icon.image = settingIcon[indexPath.row+1].icon
-            cell?.icon.layer.borderWidth = 1
+            cell?.icon.layer.borderWidth = 0
             cell?.icon.layer.borderColor = UIColor.lightGray.cgColor
             cell?.icon.layer.cornerRadius = 10
             cell?.icon.frame.size.width = CGFloat(settingIcon[indexPath.row+1].width!)

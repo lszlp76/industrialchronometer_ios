@@ -544,23 +544,7 @@ extension MPVolumeView {
         }
     }
 }
-extension UserDefaults {
-    /*
-     USer defaults ta anahtar nokta set etme işlemini doğrudan değil bir değişkene atayarak yap
-     aksi durumda o değeri tutmuyor. let olarak değil var olarak yazdırman lazım
-     */
-    func setValueForSwitch(value : Bool?){
-        if value != nil{
-           var PauseLap = UserDefaults.standard.set(value, forKey: "PauseLap")
-        } else {
-           UserDefaults.standard.removeObject(forKey: "PauseLap")
-        }
-    }
-    
-    func getValueForSwitch() -> Bool? {
-        return UserDefaults.standard.bool(forKey: "PauseLap")
-    }
-}
+
 /*
  timeInterval değeri 1 ise 1 snde 1 artırır. 0.6 yaparsan cmin oluyor
  counter 1 artırırsan saniye veya saat formatına çevireblirsin
