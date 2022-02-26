@@ -14,15 +14,19 @@ class LapListCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var totalTimeLabel: UILabel!
     
+    
     /** About tableView components */
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var toggleSwitch: UISwitch!
+    @IBOutlet weak var icon: UIImageView!
+    
+   
+        
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
     
     @IBAction func toggleSwitched(_ sender: Any) {
      

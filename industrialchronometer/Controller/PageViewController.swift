@@ -54,7 +54,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
     
         //menu butonu eklemek
-        let menu =  UIBarButtonItem (barButtonSystemItem: .organize, target: self, action: #selector(callSettingsMenu))
+        let menu =  UIBarButtonItem (image: UIImage(named: "menu"), style: .plain, target: self , action: #selector(callSettingsMenu))
         
         self.navigationItem.leftBarButtonItem = menu
         
