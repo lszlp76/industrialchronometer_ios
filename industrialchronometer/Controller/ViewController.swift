@@ -519,7 +519,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                
             }
             if audioSession.outputVolume < audioLevel {
-                //take lap
+                takeLap((Any).self)
                 
             }
             
