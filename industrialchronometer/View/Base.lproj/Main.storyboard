@@ -510,6 +510,7 @@
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c87-t6-ceP">
                                                                     <rect key="frame" x="360" y="0.0" width="51" height="30"/>
                                                                     <connections>
+                                                                        <action selector="kj:" destination="Zdv-8f-PAn" eventType="valueChanged" id="yxC-CL-cCa"/>
                                                                         <action selector="toggleSwitched:" destination="JCu-yi-U9o" eventType="valueChanged" id="hfw-LT-Jan"/>
                                                                     </connections>
                                                                 </switch>
@@ -565,6 +566,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxn-3i-Rp5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Zdv-8f-PAn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="-141.03260869565219"/>
         </scene>

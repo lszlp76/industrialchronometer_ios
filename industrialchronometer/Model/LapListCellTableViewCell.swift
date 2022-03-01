@@ -33,16 +33,16 @@ class LapListCellTableViewCell: UITableViewCell {
        /*
         tıkladığından notification geönderiyor
         */
-            NotificationCenter.default.post(name: .pauseLapOff, object: nil)
-        
-        if !toggleSwitch.isOn {
-            toggleSwitch.setOn(false, animated: true)
-           
-        }else
-        {
-            toggleSwitch.setOn(true, animated: true)
-           
-        }
+//            NotificationCenter.default.post(name: .pauseLapOff, object: nil)
+//
+//        if !toggleSwitch.isOn {
+//            toggleSwitch.setOn(false, animated: true)
+//
+//        }else
+//        {
+//            toggleSwitch.setOn(true, animated: true)
+//
+//        }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -51,6 +51,4 @@ class LapListCellTableViewCell: UITableViewCell {
     }
 
 }
-extension Notification.Name {
-    static let pauseLapOff = Notification.Name("pauseLapOff")
-}
+

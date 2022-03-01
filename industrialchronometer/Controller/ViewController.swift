@@ -23,6 +23,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var stopTime : Date!
     var laps = [Laps]()
     var pauseLap = false
+    var screenSaver = false
     
     var sendingLapToCSVD = Laps.init(hour: 0, minute: 0, second: 0)
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var totalTimeArrayForLapList : [String] = [] // laplistede total time görünmesi için
     var lapListLapNumberValue : [Int] = []    // laplistesinde lap numarasını göstermek için lazım
     var csvString  = ""
+    let userDefault = UserDefaults.standard
     @IBOutlet weak var lapListTableView: UITableView!
     
     
@@ -147,6 +149,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         let notificationCenter : NotificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.pauseLapOnOff), name: .pauseLapOff , object: nil)
         
+        notificationCenter.addObserver(self, selector: #selector((self.screenSaverOnOff)), name: .screenSaverOff, object: nil)
      
         title = "Industrial Chronometer"
         
@@ -205,18 +208,32 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         lapListTableView.dataSource = self
         
     }
+    @objc func screenSaverOnOff() {
+        if userDefault.getValueForSwitch(keyName: "ScreenSaver") == false {
+            
+            UIApplication.shared.isIdleTimerDisabled = false
+            print("screenSaver is active")
+            userDefault.setValueForSwitch(value: true, keyName: "ScreenSaver")
+        }
+        else {
+            
+            print("screensaver is disabled")
+            UIApplication.shared.isIdleTimerDisabled = true
+            userDefault.setValueForSwitch(value: false, keyName: "ScreenSaver")
+            
+        }
+    }
     @objc func pauseLapOnOff () {
      
-        let userDefault = UserDefaults.standard
-        if pauseLap == false {
+        if userDefault.getValueForSwitch(keyName: "PauseLap") == false {
             pauseLap = true
         print( "pauseLap is ON")
-            userDefault.setValueForSwitch(value: true)
+            userDefault.setValueForSwitch(value: true, keyName: "PauseLap")
            
         }else {
             pauseLap = false
             print( "pauseLap is Off")
-            userDefault.setValueForSwitch(value: false)
+            userDefault.setValueForSwitch(value: false, keyName: "PauseLap")
         }
     }
     
@@ -361,7 +378,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         if (pauseLap)  // kullanıcı bunu true/false yapabilr. true olursa durdurunca lap alır.
         // default olarak false ayarlı
-        {takeLap((Any).self)}
+        {takeLap((Any).self)
+            
+        }
         
         timer.invalidate()
         startButton.setTitle("Continue", for: .normal)
@@ -511,15 +530,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         if keyPath == "outputVolume"{
             let audioSession = AVAudioSession.sharedInstance()
             if audioSession.outputVolume > audioLevel {
-                if !(isPaused){
+                
                     startTimer(UIButton.self)
-                }else {
-                    PauseTimer()
-                }
                
             }
             if audioSession.outputVolume < audioLevel {
+                if (isPlaying){
                 takeLap((Any).self)
+                }
                 
             }
             

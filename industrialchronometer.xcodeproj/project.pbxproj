@@ -33,6 +33,7 @@
 		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
 		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
 		F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */; };
+		F9F9055E27CEB0C500179DCB /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F9055D27CEB0C500179DCB /* NotificationExtensions.swift */; };
 		F9FAC28127CA0E0B000CE941 /* SettingIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FAC28027CA0E0B000CE941 /* SettingIcon.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
+		F9F9055D27CEB0C500179DCB /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F9FAC28027CA0E0B000CE941 /* SettingIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,7 +216,6 @@
 				F92DFA5027A885480094E17D /* RadioButtonController.swift */,
 				F926833327C0ED0500EC8DF8 /* WebViewController.swift */,
 				F92DFA2427A87C5B0094E17D /* ViewController.swift */,
-				F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */,
 				F950FE2627ABFD1D00700533 /* ChartViewController.swift */,
 				F950FE2427ABFC0D00700533 /* PageViewController.swift */,
 				F950FE2827ABFD2800700533 /* AboutViewController.swift */,
@@ -240,6 +241,8 @@
 				F9FAC28027CA0E0B000CE941 /* SettingIcon.swift */,
 				F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */,
 				F99595E927CA48F100D95A72 /* MPVolumExtension.swift */,
+				F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */,
+				F9F9055D27CEB0C500179DCB /* NotificationExtensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */,
 				F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */,
 				F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */,
+				F9F9055E27CEB0C500179DCB /* NotificationExtensions.swift in Sources */,
 				F92DFA5127A885480094E17D /* RadioButtonController.swift in Sources */,
 				F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */,
 				F99595E827CA43CC00D95A72 /* UserDefaultExtension.swift in Sources */,
