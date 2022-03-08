@@ -32,7 +32,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
          break
         case (1,1) :
             
-         link = "https://www.agromtek.com/indchroaboutpage.html"
+         link = "https://www.agromtek.com/industrialchronometer/about.html"
             
           
             break

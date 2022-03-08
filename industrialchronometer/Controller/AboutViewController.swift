@@ -26,12 +26,12 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
     func configureAboutList () {
         
         
-        self.settingIcon.append(Section(title: "Settings", option: [SettingIcon(label: "Pause button takes lap when it's triggered",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { print("ulas")},switchHide: true),
-                                                                    SettingIcon(label: "ScreenSaver on",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true)
+        self.settingIcon.append(Section(title: "Settings", option: [SettingIcon(label: "Pause button takes lap when it's triggered",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true),
+                                                                    SettingIcon(label: "Screen saver on",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true)
                                                                    ]))
-        self.settingIcon.append(Section(title: "About", option: [SettingIcon(label: "Policy",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { print("ulas")},switchHide: false),
-                                                                 SettingIcon(label:"About",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: false),
-                                                                 SettingIcon(label: "Rate App",icon: UIImage(named: "terms"), iconBackgroundColor: UIColor.red,width: 20.0,heigth: 20.0,handler: {},switchHide: false)]))
+        self.settingIcon.append(Section(title: "General", option: [SettingIcon(label: "Policy",icon: UIImage(named: "terms"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: false),
+                                                                 SettingIcon(label:"About",icon: UIImage(named: "about"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: false),
+                                                                 SettingIcon(label: "Rate App",icon: UIImage(systemName: "star.fill"), iconBackgroundColor: UIColor.red,width: 20.0,heigth: 20.0,handler: {},switchHide: false)]))
         
         
     }
@@ -47,8 +47,19 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         // Do any additional setup after loading the view.
     }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+         
+        //header.textLabel?.textColor = UIColor(cgColor: CGColor.init(red: 45/255, green: 34/255, blue: 227/255, alpha: 1))
+       
+        header.textLabel?.font = UIFont(name: "DS-DIGITAL-BOLD", size: 17.0)
+   
+        
+     
+    }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let headerTitles = (settingIcon[section].title)
+    
         return headerTitles
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,10 +77,12 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         tableView.rowHeight = 50
         
+
         
-        
-        cell?.aboutLabel.textColor = UIColor(cgColor: CGColor.init(red: 45/255, green: 34/255, blue: 227/255, alpha: 1))
+        //cell?.aboutLabel.textColor = UIColor(cgColor: CGColor.init(red: 45/255, green: 34/255, blue: 227/255, alpha: 1))
         cell?.aboutLabel.sizeToFit()
+        cell?.aboutLabel?.font = UIFont(name: "DS-DIGITAL", size: 18.0)
+        cell?.aboutLabel?.textColor = UIColor(cgColor: CGColor.init(red: 0/255, green: 117/255, blue: 227/255, alpha: 1))
         
         
         cell?.icon.tintColor = settingIcon[indexPath.section].option[indexPath.row].iconBackgroundColor

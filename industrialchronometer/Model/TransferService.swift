@@ -58,24 +58,40 @@ class TransferService {
             
             
             do {
-                let items = try fileManager.contentsOfDirectory(at: defaultFld ,includingPropertiesForKeys: nil)
+              let items = try fileManager.contentsOfDirectory(at: defaultFld ,includingPropertiesForKeys: [.contentModificationDateKey])
+                
+                return items.map { item in
+                           (item.lastPathComponent, (try? item.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast)
+                       }
+
+                       .sorted(by: { $0.1 > $1.1 }) // sort descending modification dates
+                       .map { $0.0} // extract file names
+                      
                
-                for item in items
+//               
+//                for item in items
+//
+//                {
+//
+//
+//                self.fileList.append(item.lastPathComponent)
+//                }
                         
-                {
-                    self.fileList.append(item.lastPathComponent)
-                    //print("Found \(item)")
-                }
-                        
-            } catch {
+            }
+            
+            
+            catch {
                 print ("error reading file -> \(error)")
             }
             
         }catch {
             print ("error reading file -> \(error)")
         }
+        
         return self.fileList
     }
+    
+    
     private init (){}
     
     func deleteDataFile ( fileNameSelected : String){

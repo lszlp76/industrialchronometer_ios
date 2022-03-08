@@ -142,7 +142,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        listenVolumeButton()
         /*
          Notificationu takip ediyor.Geldikçe selector fonksiyonunu tetikliyor
          */
@@ -152,6 +152,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         notificationCenter.addObserver(self, selector: #selector((self.screenSaverOnOff)), name: .screenSaverOff, object: nil)
      
         title = "Industrial Chronometer"
+        
         
         /*
          pause Lap control
@@ -166,18 +167,22 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         self.tabBarController?.delegate = self
         
         tabBarItem.title = "Chrono"
-        
+        startButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         resetTimer.isEnabled = false
         resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+        resetTimer.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         lapButton.isEnabled = false
         lapButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+        lapButton.titleLabel!.font = UIFont(name: "DS-Digital", size: 17.0)
         saveButton.isEnabled = false
         saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+        saveButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         timeLabel.adjustsFontSizeToFitWidth = true
         radioController.buttonsArray = [btnSecond,btnHndrMin]
+        
         btnSecond.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         btnHndrMin.titleLabel?.font =  UIFont(name: "DS-Digital", size: 17.0)
-        
+   
         cycPerHourLabel.layer.borderWidth = 1
         cycPerHourLabel.layer.cornerRadius = 10
         cycPerHourLabel.layer.borderColor = UIColor.red.cgColor
@@ -514,6 +519,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
      */
     private var audioLevel : Float = 0.0
     func listenVolumeButton() {
+        // close volume slider
+        let volumeView = MPVolumeView(frame: .zero)
+            volumeView.clipsToBounds = true
+            view.addSubview(volumeView)
+        
         let audioSession = AVAudioSession.sharedInstance()
         do
         {
@@ -527,12 +537,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
     }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
         if keyPath == "outputVolume"{
             let audioSession = AVAudioSession.sharedInstance()
+            
             if audioSession.outputVolume > audioLevel {
                 
                     startTimer(UIButton.self)
-               
+              
             }
             if audioSession.outputVolume < audioLevel {
                 if (isPlaying){
@@ -543,14 +555,15 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             
             audioLevel = audioSession.outputVolume
             
-            if audioSession.outputVolume > 0.999 {
-                MPVolumeView.setVolume(0.999)
+            if audioSession.outputVolume > 0.9375{
+                MPVolumeView.setVolume(0.9375)
                 print("volume maxi")
                 //
                 audioLevel = 0.9375
             }
             if audioSession.outputVolume < 0.0625 {
                 MPVolumeView.setVolume(0.0625)
+                
                 print("volume mini")
                 //
                 audioLevel = 0.0625

@@ -43,6 +43,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
        
         // Make the activityViewContoller which shows the share-view
         let activityViewController = UIActivityViewController(activityItems: TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected), applicationActivities: nil)
+       
         /*
          Share menu if user's Ipad is active
          */
@@ -71,11 +72,12 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
         var cell = self.fileList.dequeueReusableCell(withIdentifier: "fileNameCell", for: indexPath)
         
         cell.textLabel?.text = fileListArray[indexPath.row]
-        
+        cell.textLabel?.font = UIFont(name: "DS-Digital", size: 18.0)
+        cell.textLabel?.textColor = UIColor(cgColor: CGColor.init(red: 0/255, green: 117/255, blue: 227/255, alpha: 1))
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var fileNameSelected = fileListArray[indexPath.row]
+        let fileNameSelected = fileListArray[indexPath.row]
         shareFiles(fileNameSelected: fileNameSelected)
         
     }

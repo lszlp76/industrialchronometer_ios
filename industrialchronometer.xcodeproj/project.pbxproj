@@ -15,7 +15,6 @@
 		F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */; };
 		F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2427A87C5B0094E17D /* ViewController.swift */; };
 		F92DFA2827A87C5B0094E17D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92DFA2627A87C5B0094E17D /* Main.storyboard */; };
-		F92DFA2A27A87C5C0094E17D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F92DFA2927A87C5C0094E17D /* Assets.xcassets */; };
 		F92DFA2D27A87C5C0094E17D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F92DFA2B27A87C5C0094E17D /* LaunchScreen.storyboard */; };
 		F92DFA3827A87C5C0094E17D /* industrialchronometerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA3727A87C5C0094E17D /* industrialchronometerTests.swift */; };
 		F92DFA4227A87C5C0094E17D /* industrialchronometerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA4127A87C5C0094E17D /* industrialchronometerUITests.swift */; };
@@ -26,10 +25,12 @@
 		F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2627ABFD1D00700533 /* ChartViewController.swift */; };
 		F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2827ABFD2800700533 /* AboutViewController.swift */; };
 		F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */; };
-		F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F96FD0B327B281C400242AA8 /* Digital.ttf */; };
 		F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */ = {isa = PBXBuildFile; fileRef = F9847B9E27C7DD8F00D56BE6 /* todolist */; };
+		F98DBD9727D27CA400F3A88E /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F98DBD9627D27C9C00F3A88E /* DS-DIGI.TTF */; };
+		F98DBD9927D27E9F00F3A88E /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F98DBD9527D27C9C00F3A88E /* DS-DIGIB.TTF */; };
 		F99595E827CA43CC00D95A72 /* UserDefaultExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */; };
 		F99595EA27CA48F100D95A72 /* MPVolumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99595E927CA48F100D95A72 /* MPVolumExtension.swift */; };
+		F99A39B827D677DB0064F869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99A39B727D677DB0064F869 /* Assets.xcassets */; };
 		F9B1BD5027A911420062B161 /* Laps.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD4F27A911420062B161 /* Laps.swift */; };
 		F9B1BD5227A9118D0062B161 /* LapsVal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B1BD5127A9118D0062B161 /* LapsVal.swift */; };
 		F9D9AE1B27B528850063CAB9 /* FileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */; };
@@ -70,7 +71,6 @@
 		F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F92DFA2427A87C5B0094E17D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F92DFA2727A87C5B0094E17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F92DFA2927A87C5C0094E17D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F92DFA2C27A87C5C0094E17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F92DFA2E27A87C5C0094E17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F92DFA3327A87C5C0094E17D /* industrialchronometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = industrialchronometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,10 +84,12 @@
 		F950FE2627ABFD1D00700533 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F950FE2827ABFD2800700533 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapListCellTableViewCell.swift; sourceTree = "<group>"; };
-		F96FD0B327B281C400242AA8 /* Digital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Digital.ttf; path = ../../../Digital.ttf; sourceTree = "<group>"; };
 		F9847B9E27C7DD8F00D56BE6 /* todolist */ = {isa = PBXFileReference; lastKnownFileType = text; path = todolist; sourceTree = "<group>"; };
+		F98DBD9527D27C9C00F3A88E /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGIB.TTF"; path = "../../../../../Downloads/ds_digital/DS-DIGIB.TTF"; sourceTree = "<group>"; };
+		F98DBD9627D27C9C00F3A88E /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGI.TTF"; path = "../../../../../Downloads/ds_digital/DS-DIGI.TTF"; sourceTree = "<group>"; };
 		F99595E727CA43CC00D95A72 /* UserDefaultExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtension.swift; sourceTree = "<group>"; };
 		F99595E927CA48F100D95A72 /* MPVolumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPVolumExtension.swift; sourceTree = "<group>"; };
+		F99A39B727D677DB0064F869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/AppIcons-2/Assets.xcassets"; sourceTree = "<group>"; };
 		F9B1BD4F27A911420062B161 /* Laps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = "<group>"; };
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
@@ -177,8 +179,7 @@
 				F9B1BD5327A911E80062B161 /* Model */,
 				F9B1BD4E27A9109D0062B161 /* View */,
 				F9B1BD4D27A910910062B161 /* Controller */,
-				F92DFA2927A87C5C0094E17D /* Assets.xcassets */,
-				F92DFA2B27A87C5C0094E17D /* LaunchScreen.storyboard */,
+				F99A39B727D677DB0064F869 /* Assets.xcassets */,
 				F92DFA2E27A87C5C0094E17D /* Info.plist */,
 				F96FD0AA27B2697400242AA8 /* fonts */,
 			);
@@ -205,7 +206,8 @@
 		F96FD0AA27B2697400242AA8 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F96FD0B327B281C400242AA8 /* Digital.ttf */,
+				F98DBD9627D27C9C00F3A88E /* DS-DIGI.TTF */,
+				F98DBD9527D27C9C00F3A88E /* DS-DIGIB.TTF */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				F92DFA2627A87C5B0094E17D /* Main.storyboard */,
+				F92DFA2B27A87C5C0094E17D /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,10 +360,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92DFA2D27A87C5C0094E17D /* LaunchScreen.storyboard in Resources */,
-				F96FD0B427B281C400242AA8 /* Digital.ttf in Resources */,
-				F92DFA2A27A87C5C0094E17D /* Assets.xcassets in Resources */,
+				F98DBD9927D27E9F00F3A88E /* DS-DIGIB.TTF in Resources */,
 				F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */,
+				F99A39B827D677DB0064F869 /* Assets.xcassets in Resources */,
 				F92DFA2827A87C5B0094E17D /* Main.storyboard in Resources */,
+				F98DBD9727D27CA400F3A88E /* DS-DIGI.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +691,7 @@
 				DEVELOPMENT_TEAM = GZ94AWJKRA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = industrialchronometer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Industrial Chronometer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -717,6 +722,7 @@
 				DEVELOPMENT_TEAM = GZ94AWJKRA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = industrialchronometer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Industrial Chronometer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

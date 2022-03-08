@@ -35,6 +35,9 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
         
         self.containerView.addSubview(lineChartView)
+        lineChartView.backgroundColor = UIColor.systemGroupedBackground
+       // UIColor(cgColor: CGColor.init(red: 255/255, green: 235/255, blue: 238/255, alpha: 1))
+        
         lineChartView.edgesToSuperview()
           //  lineChartView.centerInSuperview()
          //   lineChartView.width(to: self.view)
@@ -82,11 +85,11 @@ class ChartViewController: UIViewController {
                
                 x += 1
             }
-            var meanData = ( (sumData) / Double((dataFromChrono.count)) )  //ilk data 0.0 olduğu için
+            let meanData = ( (sumData) / Double((dataFromChrono.count)) )  //ilk data 0.0 olduğu için
             let set1 = LineChartDataSet (entries: YValues, label: "Cycle time" )
-            
             let data = LineChartData(dataSet: set1)
             data.setValueFont(UIFont(name: "DS-Digital", size: 12.0)!)
+            
             
            
             
@@ -120,6 +123,7 @@ class ChartViewController: UIViewController {
             xAxis.drawLabelsEnabled = true
             
             lineChartView.data = data
+        
             
         }
         
