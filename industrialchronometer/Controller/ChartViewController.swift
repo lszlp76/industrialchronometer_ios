@@ -13,36 +13,36 @@ import TinyConstraints
 
 class ChartViewController: UIViewController {
     
-    
-    var lineChartView : LineChartView = {
+   
+  lazy  var lineChartView : LineChartView = {
         let chartView = LineChartView()
         chartView.backgroundColor = .systemBackground
         return chartView
     }()
-    //  let button :UIButton = UIButton (frame: CGRect (x: 100, y: 100, width:150 , height: 180))
     
     @IBOutlet weak var containerView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
        
+      
         NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("ResetTimer"), object: nil)
-        
-        
-    setData()
+      
+       setData()
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setData()
         self.containerView.addSubview(lineChartView)
         lineChartView.backgroundColor = UIColor.systemGroupedBackground
        // UIColor(cgColor: CGColor.init(red: 255/255, green: 235/255, blue: 238/255, alpha: 1))
+//
+      lineChartView.edgesToSuperview()
+//
+//        lineChartView.centerInSuperview()
+//        lineChartView.width(to: self.view)
+//        lineChartView.heightToWidth(of: self.view)
         
-        lineChartView.edgesToSuperview()
-          //  lineChartView.centerInSuperview()
-         //   lineChartView.width(to: self.view)
-           // lineChartView.heightToWidth(of: self.view)
-        setData()
     }
     @objc func functionName (notification: NSNotification){
        
@@ -123,7 +123,7 @@ class ChartViewController: UIViewController {
             xAxis.drawLabelsEnabled = true
             
             lineChartView.data = data
-        
+            lineChartView.reloadInputViews()
             
         }
         
@@ -131,14 +131,5 @@ class ChartViewController: UIViewController {
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

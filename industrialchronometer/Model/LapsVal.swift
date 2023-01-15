@@ -8,7 +8,14 @@
 //
 
 import Foundation
-
+class TimerStartControl {
+    static let timerStartControl = TimerStartControl()
+    var timerStarted : Bool?
+    
+    private  init(){
+        
+    }
+}
 struct LapsVal{
     
     

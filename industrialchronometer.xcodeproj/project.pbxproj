@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0314B1465D788EB5C9FFB427 /* Pods_industrialchronometerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296E43AD8E6076CFA6B133D4 /* Pods_industrialchronometerTests.framework */; };
-		99F27C9A02EE8BD6CF3612FF /* Pods_industrialchronometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */; };
 		9D5562E141F3ECE000BFA7DF /* Pods_industrialchronometer_industrialchronometerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322255DB7DE8AFF9C21DAE0F /* Pods_industrialchronometer_industrialchronometerUITests.framework */; };
+		F90A94C72973343500B9D9D5 /* Pods_industrialchronometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */; };
 		F926833427C0ED0500EC8DF8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926833327C0ED0500EC8DF8 /* WebViewController.swift */; };
 		F92DFA2127A87C5B0094E17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2027A87C5B0094E17D /* AppDelegate.swift */; };
 		F92DFA2327A87C5B0094E17D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2227A87C5B0094E17D /* SceneDelegate.swift */; };
@@ -25,6 +25,7 @@
 		F950FE2727ABFD1D00700533 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2627ABFD1D00700533 /* ChartViewController.swift */; };
 		F950FE2927ABFD2800700533 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950FE2827ABFD2800700533 /* AboutViewController.swift */; };
 		F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */; };
+		F960B97A2973F30700C37FAE /* ChartUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F960B9792973F30700C37FAE /* ChartUIViewController.swift */; };
 		F9847B9F27C7DD8F00D56BE6 /* todolist in Resources */ = {isa = PBXBuildFile; fileRef = F9847B9E27C7DD8F00D56BE6 /* todolist */; };
 		F98DBD9727D27CA400F3A88E /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F98DBD9627D27C9C00F3A88E /* DS-DIGI.TTF */; };
 		F98DBD9927D27E9F00F3A88E /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F98DBD9527D27C9C00F3A88E /* DS-DIGIB.TTF */; };
@@ -84,6 +85,7 @@
 		F950FE2627ABFD1D00700533 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F950FE2827ABFD2800700533 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F9528CD027BA6227007D8C64 /* LapListCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapListCellTableViewCell.swift; sourceTree = "<group>"; };
+		F960B9792973F30700C37FAE /* ChartUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIViewController.swift; sourceTree = "<group>"; };
 		F9847B9E27C7DD8F00D56BE6 /* todolist */ = {isa = PBXFileReference; lastKnownFileType = text; path = todolist; sourceTree = "<group>"; };
 		F98DBD9527D27C9C00F3A88E /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGIB.TTF"; path = "../../../../../Downloads/ds_digital/DS-DIGIB.TTF"; sourceTree = "<group>"; };
 		F98DBD9627D27C9C00F3A88E /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGI.TTF"; path = "../../../../../Downloads/ds_digital/DS-DIGI.TTF"; sourceTree = "<group>"; };
@@ -102,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F27C9A02EE8BD6CF3612FF /* Pods_industrialchronometer.framework in Frameworks */,
+				F90A94C72973343500B9D9D5 /* Pods_industrialchronometer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +224,7 @@
 				F950FE2427ABFC0D00700533 /* PageViewController.swift */,
 				F950FE2827ABFD2800700533 /* AboutViewController.swift */,
 				F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */,
+				F960B9792973F30700C37FAE /* ChartUIViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F92DFA2527A87C5B0094E17D /* ViewController.swift in Sources */,
+				F960B97A2973F30700C37FAE /* ChartUIViewController.swift in Sources */,
 				F9528CD127BA6227007D8C64 /* LapListCellTableViewCell.swift in Sources */,
 				F950FE2527ABFC0D00700533 /* PageViewController.swift in Sources */,
 				F9F9055E27CEB0C500179DCB /* NotificationExtensions.swift in Sources */,
@@ -702,7 +706,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der ";
 				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -733,7 +738,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der ";
 				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

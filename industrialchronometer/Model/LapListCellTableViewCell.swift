@@ -21,7 +21,6 @@ class LapListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     
    
-        
     
     override func awakeFromNib() {
         super.awakeFromNib()

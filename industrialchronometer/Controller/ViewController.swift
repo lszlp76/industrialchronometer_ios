@@ -40,6 +40,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var lapListLapNumberValue : [Int] = []    // laplistesinde lap numarasını göstermek için lazım
     var csvString  = ""
     let userDefault = UserDefaults.standard
+    
+    
+    var  mscd : Int = 0
+    var scd : Int = 0
+    var mn : Int = 0
+    var hr : Int = 0
+    
+    
     @IBOutlet weak var lapListTableView: UITableView!
     
     
@@ -47,6 +55,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     @IBOutlet weak var btnSecond: UIButton!
     
     @IBOutlet weak var aveCycTimeLabel: UILabel!
+    
+   
     @IBOutlet weak var maxCycTimeLabel: UILabel!
     @IBOutlet weak var minCycTimeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -66,20 +76,22 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     
     @IBAction func btnSecondClicked(_ sender: UIButton) {
+        /*
         modul = 100.0
         milis = 60
         timeUnit = "Sec."
-        radioController.buttonArrayUpdated(buttonSelected: sender )
+        radioController.buttonArrayUpdated(buttonSelected: sender )*/
     }
     
     @IBAction func btnHdrtMinClicked(_ sender: UIButton) {
-        modul = 60.0
+     /*   modul = 60.0
         milis = 100
         timeUnit =  "Cmin."
-        radioController.buttonArrayUpdated(buttonSelected: sender )
+        radioController.buttonArrayUpdated(buttonSelected: sender )*/
         
         
     }
+     
     
     @IBAction func saveToFile(_ sender: Any) {
         if laps.count != 0 {
@@ -141,18 +153,37 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.lapListTableView.backgroundColor = UIColor.s
         listenVolumeButton()
+        self.view.backgroundColor = UIColor.systemBackground
+        
+        print("cmin seçili mi \(userDefault.getValueForSwitch(keyName: "CminUnit"))")
+        if (userDefault.getValueForSwitch(keyName: "CminUnit") == true) {
+            modul = 60
+            milis = 100
+            timeUnit = "Cmin."
+        }
+        if (userDefault.getValueForSwitch(keyName: "SecondUnit") == true) {
+            modul = 100.0
+            milis = 60
+            timeUnit = "Sec."
+        }
+        print("saniye seçili mi \(userDefault.getValueForSwitch(keyName: "SecondUnit"))")
         /*
          Notificationu takip ediyor.Geldikçe selector fonksiyonunu tetikliyor
          */
         let notificationCenter : NotificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.pauseLapOnOff), name: .pauseLapOff , object: nil)
-        
+       
         notificationCenter.addObserver(self, selector: #selector((self.screenSaverOnOff)), name: .screenSaverOff, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.TimeUnitSelect), name: .timeUnitSelection, object: nil)
      
         title = "Industrial Chronometer"
-        
+        timeLabel.textColor = UIColor(named: "Color")
+        aveCycTimeLabel.textColor = UIColor(named : "Color")
+        minCycTimeLabel.textColor = UIColor(named : "Color")
+        maxCycTimeLabel.textColor = UIColor(named : "Color")
+        aveCycTimeLabel.textColor = UIColor(named : "Color")
         
         /*
          pause Lap control
@@ -213,12 +244,36 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         lapListTableView.dataSource = self
         
     }
+   
+    @objc func TimeUnitSelect(){
+        if userDefault.getValueForSwitch(keyName: "SecondUnit") == false {  // saniye SEÇİLİ DEĞİL İSE
+            print("Saniye açıldı")
+            userDefault.setValueForSwitch(value: true, keyName: "SecondUnit") //saniyeyi açtı
+            userDefault.setValueForSwitch(value: false, keyName: "CminUnit")//cmin kapattı
+            modul = 100.0
+            milis = 60
+            timeUnit = "Sec."
+            
+            
+        }
+        else { // saniye Seçili ise
+            print("Saniye Kapatıldı")
+            userDefault.setValueForSwitch(value: false, keyName: "SecondUnit")//saniyeyi kapattı
+            userDefault.setValueForSwitch(value: true, keyName: "CminUnit") //cmin açtı
+            modul = 60
+            milis = 100
+            timeUnit = "Cmin."
+            
+        }
+            
+    }
     @objc func screenSaverOnOff() {
         if userDefault.getValueForSwitch(keyName: "ScreenSaver") == false {
             
             UIApplication.shared.isIdleTimerDisabled = false
             print("screenSaver is active")
             userDefault.setValueForSwitch(value: true, keyName: "ScreenSaver")
+            
         }
         else {
             
@@ -328,6 +383,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         resetAlert.addAction(UIAlertAction(title: "Reset", style: .default,handler: { UIAlertAction in
             self.startButton.isEnabled = true
             
+            TimerStartControl.timerStartControl.timerStarted = false
+            
             self.radioController.buttonsArray[0].isEnabled = true
             self.radioController.buttonsArray[1].isEnabled = true
             self.timer.invalidate()
@@ -336,6 +393,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.counter = 0
             self.h = 0
             self.m = 0
+            self.mscd = 0
+            self.scd = 0
+            self.mn = 0
+            self.hr = 0
+            
             self.timeLabel.text = "00:00:00"
             self.maxCycTimeLabel.text = ""
             self.minCycTimeLabel.text = ""
@@ -349,7 +411,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.laps.removeAll()
             self.lapsVal.cycleTime.removeAll()
             self.lapNumber = 0
-            self.radioController.selectedButton?.isSelected = false
+            //self.radioController.selectedButton?.isSelected = false
             // self.stopTime = nil
             // self.startTime = nil
             self.isPlaying = false
@@ -400,16 +462,19 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     }
     
     @IBAction func startTimer(_ sender: Any) {
+        
         if (modul > 0 ){
             isPlaying = true
+            
             switch (titleButton){
                 
             case ("Start"):
+                TimerStartControl.timerStartControl.timerStarted = true
                 startButton.setTitle("Pause", for: .normal)
                 titleButton = "Pause"
                 isPaused = false
                 
-                timer = Timer.scheduledTimer(timeInterval: modul/100, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: modul/10000, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
                 
                 if !(isPlaying) {
                     startTime = lapsVal.setMomentTime() // başladığı anın değeri
@@ -457,6 +522,35 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     @objc func UpdateTimer (){
         
+        mscd += 1;
+        
+        if (mscd == 100){
+            scd += 1
+            counter += 1
+            mscd = 0
+        }
+        else if (scd == 60){
+            mn += 1
+            scd = 0
+            m += 1
+            counter = 0
+        }
+        else if ( mn == 60){
+            hr += 1
+            mn = 0
+            h += 1
+            m = 0
+        }
+        
+        var timerText = String(String(String(hr).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(mn).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(scd).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) +  "." + String(String(String(mscd).reversed()).padding(toLength: 2, withPad: " ", startingAt: 0).reversed())
+        
+        var slsText = NSMutableAttributedString.init(string: timerText)
+        slsText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 20.0)], range: NSMakeRange(8,3))
+        
+        //timeLabel.text = (String ( format: "%02ld:%02ld:%02ld.%02ld" ,h,m,counter,mscd))
+        timeLabel.attributedText =  slsText
+        //timeLabel.text = (String ( format: "%02ld:%02ld:%02ld.%02ld" ,hr,mn,scd,mscd))
+        /*
         counter += 1
         if ( counter > 0 && Int(counter)%Int(milis) == 0)
         {
@@ -470,7 +564,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
        
         timeLabel.text = (String ( format: "%02ld:%02ld:%02ld" ,h,m,counter)) //String ( hh + ":" + mm + ":" + ss)
-        
+        */
     }
     
     func transferLapToChart (lapnumber : Int){
@@ -486,8 +580,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let lapCell = self.lapListTableView.dequeueReusableCell(withIdentifier: "lapList", for: indexPath) as! LapListCellTableViewCell
-        
-        
+      
         
         //        if #available(iOS 14.0, *) {
         //            var contentLapList = lapCell.defaultContentConfiguration()

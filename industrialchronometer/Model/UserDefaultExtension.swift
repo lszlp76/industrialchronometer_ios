@@ -14,6 +14,10 @@ extension UserDefaults {
     func setValueForSwitch(value : Bool?, keyName: String){
         if value != nil{
             switch keyName  {
+            case "CminUnit":
+                var CminUnit = UserDefaults.standard.set(value,forKey: keyName)
+            case "SecondUnit":
+                var SecondUnit = UserDefaults.standard.set(value,forKey: keyName)
             case "ScreenSaver" :
                 var ScreenSaver = UserDefaults.standard.set(value, forKey: keyName)
             case "PauseLap" :

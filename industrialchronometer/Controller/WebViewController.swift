@@ -20,6 +20,9 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         webPageView.navigationDelegate = self
         view = webPageView
     }
+    override func willMove(toParent parent: UIViewController?) {
+        print("ok")
+    }
     @IBOutlet weak var webPageView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +40,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
           
             break
         
-        case (2,1) :
-            rateApp()
-            print("rate me")
-            link = "itms-apps://itunes.apple.com/app/" + "GZ94AWJKRA"
-            break
+        
         default:
             link =  "https://www.google.com"
         }
@@ -51,19 +50,6 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
    
-    func rateApp() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-
-        } else if let url = URL(string: "itms-apps://itunes.apple.com/app/" + "zlpls.PlantInsta") {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
-    }
-
+   
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
+    let pg = UIPageViewController()
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -29,7 +30,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
         let nextIndex = viewControllerIndex + 1
@@ -58,7 +59,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         let menu =  UIBarButtonItem (image: UIImage(named: "menu"), style: .plain, target: self , action: #selector(callSettingsMenu))
         
         self.navigationItem.leftBarButtonItem = menu
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "clock"),style : .plain,target: self,action: #selector(deneme))
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController]
                                , direction: .forward
@@ -68,7 +69,28 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             
         }
        
+        
     }
+   @objc func deneme() {
+        
+        let vcs = self.orderedViewControllers
+       
+       var currentIndex: Int {
+           guard let vc = viewControllers?.first else { return 0 }
+           return vcs.firstIndex(of: vc) ?? 0
+       }
+       let currentPage = currentIndex
+       
+        let nextPage = currentPage + 1
+
+        if nextPage < vcs.count {
+            let nextVC =  vcs[0]
+            self.setViewControllers([nextVC], direction: .forward, animated: true) { _ in
+               
+            }
+        }
+    }
+
     @objc func callSettingsMenu (){
         
         self.performSegue(withIdentifier: "toSettingsMenu", sender: nil)
@@ -79,7 +101,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     private (set) lazy var orderedViewControllers : [UIViewController] = {
         
         return [self.callViewController ( order: "Chrono" ),
-                self.callViewController ( order: "Chart" ),
+                self.callViewController ( order: "ChartUI" ),
                 self.callViewController ( order: "FileList" )  ]
     }()
     
