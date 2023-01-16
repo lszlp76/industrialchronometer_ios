@@ -83,6 +83,7 @@ struct LapsVal{
         let calendar = Calendar.current
        let diff = calendar.dateComponents([.hour, .minute , .second], from: start,to:end)
         let formattedStringDateDifference = String (format : "%02ld:%02ld:%02ld", diff.hour!,diff.minute!,diff.second!)
+        print(start,end)
         return formattedStringDateDifference
         
 

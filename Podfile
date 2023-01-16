@@ -6,16 +6,9 @@ target 'industrialchronometer' do
   use_frameworks!
 
   # Pods for industrialchronometer
-pod 'DLRadioButton', '~> 1.4'
+
 pod 'Charts'
+pod 'DLRadioButton', '~> 1.4'
+
 pod 'TinyConstraints'
-  target 'industrialchronometerTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'industrialchronometerUITests' do
-    # Pods for testing
-  end
-
 end

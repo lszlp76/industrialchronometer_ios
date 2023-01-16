@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0314B1465D788EB5C9FFB427 /* Pods_industrialchronometerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 296E43AD8E6076CFA6B133D4 /* Pods_industrialchronometerTests.framework */; };
-		9D5562E141F3ECE000BFA7DF /* Pods_industrialchronometer_industrialchronometerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322255DB7DE8AFF9C21DAE0F /* Pods_industrialchronometer_industrialchronometerUITests.framework */; };
 		F90A94C72973343500B9D9D5 /* Pods_industrialchronometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */; };
 		F926833427C0ED0500EC8DF8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926833327C0ED0500EC8DF8 /* WebViewController.swift */; };
 		F92DFA2127A87C5B0094E17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92DFA2027A87C5B0094E17D /* AppDelegate.swift */; };
@@ -57,13 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		296E43AD8E6076CFA6B133D4 /* Pods_industrialchronometerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_industrialchronometerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		322255DB7DE8AFF9C21DAE0F /* Pods_industrialchronometer_industrialchronometerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_industrialchronometer_industrialchronometerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_industrialchronometer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2B3E8E9F5D336C2433BCE57 /* Pods-industrialchronometer-industrialchronometerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer-industrialchronometerUITests.release.xcconfig"; path = "Target Support Files/Pods-industrialchronometer-industrialchronometerUITests/Pods-industrialchronometer-industrialchronometerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B749918153BBAD64D394A891 /* Pods-industrialchronometerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometerTests.debug.xcconfig"; path = "Target Support Files/Pods-industrialchronometerTests/Pods-industrialchronometerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C6006AC85A583FBAAD06D6B2 /* Pods-industrialchronometer-industrialchronometerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer-industrialchronometerUITests.debug.xcconfig"; path = "Target Support Files/Pods-industrialchronometer-industrialchronometerUITests/Pods-industrialchronometer-industrialchronometerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		CFB421D68A2FF78A14103091 /* Pods-industrialchronometerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometerTests.release.xcconfig"; path = "Target Support Files/Pods-industrialchronometerTests/Pods-industrialchronometerTests.release.xcconfig"; sourceTree = "<group>"; };
 		DBCCC1FF6DA18EEA2AA81590 /* Pods-industrialchronometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer.release.xcconfig"; path = "Target Support Files/Pods-industrialchronometer/Pods-industrialchronometer.release.xcconfig"; sourceTree = "<group>"; };
 		EC2A842BB406D1E569F37C3A /* Pods-industrialchronometer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-industrialchronometer.debug.xcconfig"; path = "Target Support Files/Pods-industrialchronometer/Pods-industrialchronometer.debug.xcconfig"; sourceTree = "<group>"; };
 		F926833327C0ED0500EC8DF8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +104,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0314B1465D788EB5C9FFB427 /* Pods_industrialchronometerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D5562E141F3ECE000BFA7DF /* Pods_industrialchronometer_industrialchronometerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				A47F2096EAC1E90DA8B4B98A /* Pods_industrialchronometer.framework */,
-				322255DB7DE8AFF9C21DAE0F /* Pods_industrialchronometer_industrialchronometerUITests.framework */,
-				296E43AD8E6076CFA6B133D4 /* Pods_industrialchronometerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,10 +130,6 @@
 			children = (
 				EC2A842BB406D1E569F37C3A /* Pods-industrialchronometer.debug.xcconfig */,
 				DBCCC1FF6DA18EEA2AA81590 /* Pods-industrialchronometer.release.xcconfig */,
-				C6006AC85A583FBAAD06D6B2 /* Pods-industrialchronometer-industrialchronometerUITests.debug.xcconfig */,
-				B2B3E8E9F5D336C2433BCE57 /* Pods-industrialchronometer-industrialchronometerUITests.release.xcconfig */,
-				B749918153BBAD64D394A891 /* Pods-industrialchronometerTests.debug.xcconfig */,
-				CFB421D68A2FF78A14103091 /* Pods-industrialchronometerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -279,7 +263,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F92DFA4A27A87C5C0094E17D /* Build configuration list for PBXNativeTarget "industrialchronometerTests" */;
 			buildPhases = (
-				A42885C28BBF2B6F785FA7D3 /* [CP] Check Pods Manifest.lock */,
 				F92DFA2F27A87C5C0094E17D /* Sources */,
 				F92DFA3027A87C5C0094E17D /* Frameworks */,
 				F92DFA3127A87C5C0094E17D /* Resources */,
@@ -298,11 +281,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F92DFA4D27A87C5C0094E17D /* Build configuration list for PBXNativeTarget "industrialchronometerUITests" */;
 			buildPhases = (
-				E70E34BC11903F9E07AF6C5E /* [CP] Check Pods Manifest.lock */,
 				F92DFA3927A87C5C0094E17D /* Sources */,
 				F92DFA3A27A87C5C0094E17D /* Frameworks */,
 				F92DFA3B27A87C5C0094E17D /* Resources */,
-				D0D08BE2369AB3E3C97B51D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -421,67 +402,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-industrialchronometer-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A42885C28BBF2B6F785FA7D3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-industrialchronometerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0D08BE2369AB3E3C97B51D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-industrialchronometer-industrialchronometerUITests/Pods-industrialchronometer-industrialchronometerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-industrialchronometer-industrialchronometerUITests/Pods-industrialchronometer-industrialchronometerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-industrialchronometer-industrialchronometerUITests/Pods-industrialchronometer-industrialchronometerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E70E34BC11903F9E07AF6C5E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-industrialchronometer-industrialchronometerUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -750,7 +670,6 @@
 		};
 		F92DFA4B27A87C5C0094E17D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B749918153BBAD64D394A891 /* Pods-industrialchronometerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -776,7 +695,6 @@
 		};
 		F92DFA4C27A87C5C0094E17D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFB421D68A2FF78A14103091 /* Pods-industrialchronometerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -802,7 +720,6 @@
 		};
 		F92DFA4E27A87C5C0094E17D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6006AC85A583FBAAD06D6B2 /* Pods-industrialchronometer-industrialchronometerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -826,7 +743,6 @@
 		};
 		F92DFA4F27A87C5C0094E17D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2B3E8E9F5D336C2433BCE57 /* Pods-industrialchronometer-industrialchronometerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -25,7 +25,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var pauseLap = false
     var screenSaver = false
     
-    var sendingLapToCSVD = Laps.init(hour: 0, minute: 0, second: 0)
+    var sendingLapToCSVD = Laps.init(hour: 0, minute: 0, second: 0, msec: 0)
     
     
     var lapsVal = LapsVal.init(cycleTime: [])//lapsVal LapsVal içinde float bir dizi olacak
@@ -51,9 +51,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     @IBOutlet weak var lapListTableView: UITableView!
     
     
-    @IBOutlet weak var btnHndrMin: UIButton!
-    @IBOutlet weak var btnSecond: UIButton!
+   // @IBOutlet weak var btnHndrMin: UIButton!
+   // @IBOutlet weak var btnSecond: UIButton!
     
+    @IBOutlet weak var secUnitLabel: UILabel!
+ //   @IBOutlet weak var cMinUnitLabel: UILabel!
     @IBOutlet weak var aveCycTimeLabel: UILabel!
     
    
@@ -162,11 +164,13 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             modul = 60
             milis = 100
             timeUnit = "Cmin."
+            secUnitLabel.text = "Cminute"
         }
         if (userDefault.getValueForSwitch(keyName: "SecondUnit") == true) {
             modul = 100.0
             milis = 60
             timeUnit = "Sec."
+            secUnitLabel.text = "Second"
         }
         print("saniye seçili mi \(userDefault.getValueForSwitch(keyName: "SecondUnit"))")
         /*
@@ -192,7 +196,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
       
         
         //******
-        timeLabel.text = "00:00:00"
+        timeLabel.text = "00:00:00:00"
         
         
         self.tabBarController?.delegate = self
@@ -209,11 +213,13 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
         saveButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         timeLabel.adjustsFontSizeToFitWidth = true
-        radioController.buttonsArray = [btnSecond,btnHndrMin]
+//        radioController.buttonsArray = [btnSecond,btnHndrMin]
         
-        btnSecond.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
-        btnHndrMin.titleLabel?.font =  UIFont(name: "DS-Digital", size: 17.0)
-   
+      //  btnSecond.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
+      //  btnHndrMin.titleLabel?.font =  UIFont(name: "DS-Digital", size: 17.0)
+       
+        secUnitLabel.font = UIFont(name: "DS-Digital", size: 17.0)
+        //cMinUnitLabel.font = UIFont(name: "DS-Digital", size: 12.0)
         cycPerHourLabel.layer.borderWidth = 1
         cycPerHourLabel.layer.cornerRadius = 10
         cycPerHourLabel.layer.borderColor = UIColor.red.cgColor
@@ -253,6 +259,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             modul = 100.0
             milis = 60
             timeUnit = "Sec."
+            secUnitLabel.text = "Second"
             
             
         }
@@ -263,6 +270,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             modul = 60
             milis = 100
             timeUnit = "Cmin."
+            secUnitLabel.text = "Cminute"
             
         }
             
@@ -302,7 +310,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         
         var delta , delta0 , delta1  : Float
-        let lap = Laps(hour: h, minute: m, second: counter)
+        let lap = Laps(hour: h, minute: m, second: counter, msec: mscd)
         delta = 0
         delta0 = 0
         delta1 = 0
@@ -385,8 +393,8 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             
             TimerStartControl.timerStartControl.timerStarted = false
             
-            self.radioController.buttonsArray[0].isEnabled = true
-            self.radioController.buttonsArray[1].isEnabled = true
+            //self.radioController.buttonsArray[0].isEnabled = true
+           // self.radioController.buttonsArray[1].isEnabled = true
             self.timer.invalidate()
             self.isPlaying = false
             self.isPaused = false
@@ -398,22 +406,22 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.mn = 0
             self.hr = 0
             
-            self.timeLabel.text = "00:00:00"
+            self.timeLabel.text = "00:00:00:00"
             self.maxCycTimeLabel.text = ""
             self.minCycTimeLabel.text = ""
             self.aveCycTimeLabel.text = ""
             self.cycPerHourLabel.text = ""
             self.cycPerMinuteLabel.text = ""
             self.observationTimer.text = ""
-            self.milis = 0
-            self.modul = 0
+           // self.milis = 0
+           // self.modul = 0
             self.totalTimeArrayForLapList.removeAll()
             self.laps.removeAll()
             self.lapsVal.cycleTime.removeAll()
             self.lapNumber = 0
             //self.radioController.selectedButton?.isSelected = false
             // self.stopTime = nil
-            // self.startTime = nil
+            self.startTime = Date()
             self.isPlaying = false
             self.startButton.setTitle("Start", for: .normal)
             self.dataTransfer.lapDataToTransfer.removeAll()
@@ -453,6 +461,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         startButton.setTitle("Continue", for: .normal)
         
         stopTime = lapsVal.setMomentTime()
+        print(stopTime)
         titleButton = "Start"
         observationTime = lapsVal.getObservationTime(start: startTime, end: stopTime)
         observationTimer.text = observationTime
@@ -490,9 +499,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                 saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
                 
                 if (modul == 60 ){
-                    radioController.buttonsArray[0].isEnabled = false
+              //      radioController.buttonsArray[0].isEnabled = false
+                    secUnitLabel.text = "Cminute"
                 }else {
-                    radioController.buttonsArray[1].isEnabled = false
+                //radioController.buttonsArray[1].isEnabled = false
+                    secUnitLabel.text = "Second"
                 }
                 
                 break
@@ -524,7 +535,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         mscd += 1;
         
-        if (mscd == 100){
+        if (mscd == 60){
             scd += 1
             counter += 1
             mscd = 0
@@ -541,11 +552,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             h += 1
             m = 0
         }
-        
+        /* HARFLERİN BİR KISMINI FARKLI KARAKTERDE YAZMAK*/
         var timerText = String(String(String(hr).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(mn).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(scd).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) +  "." + String(String(String(mscd).reversed()).padding(toLength: 2, withPad: " ", startingAt: 0).reversed())
         
         var slsText = NSMutableAttributedString.init(string: timerText)
-        slsText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 20.0)], range: NSMakeRange(8,3))
+        slsText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 70.0)], range: NSMakeRange(8,3))
         
         //timeLabel.text = (String ( format: "%02ld:%02ld:%02ld.%02ld" ,h,m,counter,mscd))
         timeLabel.attributedText =  slsText
