@@ -31,10 +31,10 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             
         
             
-            /*SettingIcon(label: "Pause button takes lap when it's triggered",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true),*/
+            
             
                                                                     SettingIcon(label: "Screen saver on",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true), SettingIcon(label: "Time unit second",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
-           SettingIcon(label: "Time unit hunderths of minute",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true)
+           SettingIcon(label: "Time unit hunderths of minute",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),SettingIcon(label: "Pause button takes lap when it's triggered",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true)
                                                                     
                                                                     
                                                                    ]))
@@ -145,14 +145,14 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         if indexPath.section < 1{
         switch indexPath.row{
     
-        /*case 0:
+        case 3:
         if userDefaults.getValueForSwitch(keyName: "PauseLap") == false
         {
             cell?.toggleSwitch.setOn(false, animated: true) // sayfa açıldığında swici off tutacak
         }else if userDefaults.getValueForSwitch(keyName: "PauseLap") == true {
             cell?.toggleSwitch.setOn(true, animated: true)
         }
-         */
+         
            
         case 0:
             if userDefaults.getValueForSwitch(keyName: "ScreenSaver") == false
@@ -217,6 +217,9 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             NotificationCenter.default.post(name: .timeUnitSelection, object: nil)
             
             print("cmin")
+        }
+        else if sender.tag == 3 {
+            NotificationCenter.default.post(name: .pauseLapOff, object: nil)
         }
         if sender.tag > 0 {
             guard (sender.isOn ) else {

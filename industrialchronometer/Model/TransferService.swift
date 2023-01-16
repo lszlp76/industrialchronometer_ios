@@ -126,10 +126,10 @@ class TransferService {
         
         
     }
-    func shareFileWith(fileNameSelected: String) -> [Any]{
+    func shareFileWith(fileNameSelected: String) -> String {
         
         let fileManager = FileManager.default
-        var fileToShare = [Any]()
+        var fileToShare = "" //[Any]()
         do {
             let path = try fileManager.url(for: .documentDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
            
@@ -143,8 +143,8 @@ class TransferService {
                 {
                     if (item.lastPathComponent == fileNameSelected){
                         
-                        
-                        fileToShare.append(item)
+                        fileToShare = item.absoluteString
+                       // fileToShare.append(item)
                     }
                 }
                 
@@ -158,6 +158,7 @@ class TransferService {
             print ("error reading file -> \(error)")
         }
         
+     
         return fileToShare
     }
     

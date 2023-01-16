@@ -40,9 +40,21 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     @objc func shareFiles(fileNameSelected : String){
-       
+        let title = "\(fileNameSelected)"
+        let icon = UIImage(named: "aboutImage")
+        let text = ("Your file is ready to share !")
+        let file = URL(string: (TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected)))
+
+        // set up activity view controller
+        let textToShare: [Any] = [
+            MyActivityItemSource( title: title, text: text, icon: icon, file: file )
+        ]
+        
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        
+        
         // Make the activityViewContoller which shows the share-view
-        let activityViewController = UIActivityViewController(activityItems: TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected), applicationActivities: nil)
+        //let _activityViewController = UIActivityViewController(activityItems: TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected), applicationActivities: nil)
        
         /*
          Share menu if user's Ipad is active
