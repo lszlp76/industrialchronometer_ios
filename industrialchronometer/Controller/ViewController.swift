@@ -535,7 +535,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         mscd += 1;
         
-        if (mscd == 100){
+        if (mscd == 60){
             scd += 1
             counter += 1
             mscd = 0
