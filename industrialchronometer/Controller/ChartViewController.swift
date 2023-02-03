@@ -27,7 +27,7 @@ class ChartViewController: UIViewController {
       
         NotificationCenter.default.addObserver(self, selector: #selector(functionName), name: Notification.Name("ResetTimer"), object: nil)
       
-       setData()
+      
         
     }
     override func viewDidLoad() {

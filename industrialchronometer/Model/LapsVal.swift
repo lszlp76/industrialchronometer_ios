@@ -24,7 +24,7 @@ struct LapsVal{
         var cycPerMinute : Float = 0.0
        
        
-        cycPerMinute = (1 / GetMeanOfLaps(laps: cycleTime))
+        cycPerMinute = (1 / GetMeanOfLaps(laps: laps))
         
         return cycPerMinute
         
@@ -33,7 +33,7 @@ struct LapsVal{
     func CalculateCycleTimePerHour(laps:[Float] ) -> Float {
         var cycPerHour : Float = 0.0
         
-        cycPerHour = 60 / GetMeanOfLaps(laps: cycleTime)
+        cycPerHour = 60 / GetMeanOfLaps(laps: laps)
        
         return cycPerHour
         

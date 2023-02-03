@@ -42,7 +42,7 @@ class MyActivityItemSource: NSObject, UIActivityItemSource {
         let metadata = LPLinkMetadata()
         metadata.title = title
         
-        metadata.imageProvider = NSItemProvider(object: icon as! NSItemProviderWriting)
+        metadata.imageProvider = NSItemProvider(object: icon!)
         
        // metadata.iconProvider = NSItemProvider(object: UIImage(systemName: "text.bubble")!)
         //This is a bit ugly, though I could not find other ways to show text content below title.

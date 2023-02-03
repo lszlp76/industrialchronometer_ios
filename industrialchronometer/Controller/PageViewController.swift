@@ -9,15 +9,16 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     let pg = UIPageViewController()
-    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
+      
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
         
         let previousIndex = viewControllerIndex - 1
-        if previousIndex < 3 { title = "Industrial Chronometer"}
+        if previousIndex < 3 { title = "Industrial Chronometer"
+}
+       
         guard previousIndex >= 0 else {
             return   nil // burayı orderedViewControllers.last yaparsan tekrar son sayfaya gelir
         }
@@ -33,7 +34,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
+        
         let nextIndex = viewControllerIndex + 1
+        
+        if nextIndex == 2 { title = "Cycle Time Chart"}
         if nextIndex == 3 { title = "Saved Observations"}
         let orderedViewControllersCount = orderedViewControllers.count
         
@@ -51,15 +55,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         dataSource = self
         title = "Industrial Chronometer"
-        let appearence =  UINavigationBar.appearance()
-        appearence.barTintColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
-        appearence.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let appearence =   self.navigationController?.navigationBar
+        appearence?.barTintColor = UIColor(red: 0.85, green: 0.11, blue: 0.38, alpha: 1.00)
+        appearence?.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "DS-Digital", size: 22.0)]
+        
+        //https://stackoverflow.com/questions/39438606/change-navigation-bar-title-font-swift
     
         //menu butonu eklemek
         let menu =  UIBarButtonItem (image: UIImage(named: "menu"), style: .plain, target: self , action: #selector(callSettingsMenu))
         
         self.navigationItem.leftBarButtonItem = menu
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "clock"),style : .plain,target: self,action: #selector(deneme))
+   
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController]
                                , direction: .forward
@@ -85,10 +92,20 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
         if nextPage < vcs.count {
             let nextVC =  vcs[0]
-            self.setViewControllers([nextVC], direction: .forward, animated: true) { _ in
+            self.setViewControllers([nextVC], direction: .forward, animated: true)
+            { _ in
                
             }
+            
         }
+       else
+       {
+           let nextVC =  vcs[0]
+           self.setViewControllers([nextVC], direction: .forward, animated: true)
+           { _ in
+              
+           }
+       }
     }
 
     @objc func callSettingsMenu (){

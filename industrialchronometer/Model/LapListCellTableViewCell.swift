@@ -24,6 +24,7 @@ class LapListCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       //toggleSwitch.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         // Initialization code
     }
     
@@ -34,19 +35,14 @@ class LapListCellTableViewCell: UITableViewCell {
         */
 //            NotificationCenter.default.post(name: .pauseLapOff, object: nil)
 //
-//        if !toggleSwitch.isOn {
-//            toggleSwitch.setOn(false, animated: true)
-//
-//        }else
-//        {
-//            toggleSwitch.setOn(true, animated: true)
-//
-//        }
+       
+      
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
     }
 
 }

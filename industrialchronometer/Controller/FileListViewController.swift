@@ -41,7 +41,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
     
     @objc func shareFiles(fileNameSelected : String){
         let title = "\(fileNameSelected)"
-        let icon = UIImage(named: "aboutImage")
+        let icon = UIImage(named: "logo512")
         let text = ("Your file is ready to share !")
         let file = URL(string: (TransferService.sharedInstance.shareFileWith(fileNameSelected: fileNameSelected)))
 
@@ -85,7 +85,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
         
         cell.textLabel?.text = fileListArray[indexPath.row]
         cell.textLabel?.font = UIFont(name: "DS-Digital", size: 18.0)
-        cell.textLabel?.textColor = UIColor(cgColor: CGColor.init(red: 0/255, green: 117/255, blue: 227/255, alpha: 1))
+        cell.textLabel?.textColor = UIColor(named: "Color") //UIColor(cgColor: CGColor.init(red: 0/255, green: 117/255, blue: 227/255, alpha: 1))
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

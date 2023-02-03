@@ -15,7 +15,12 @@ class TransferService {
     var lapDataToTransfer : [Float] = []
     var timeUnitToTransfer : String = ""
     var fileList : [String] = []
-    
+    var milis: Int = 0
+    var modul : Int = 0
+    var cycPerHour : Double = 0.0
+     
+    var cycPerMinute : Double = 0.0
+     
     
     func saveTo (name: String , csvString:  String )
     {

@@ -11,7 +11,7 @@ import MediaPlayer
 
 
 
-class ViewController: UIViewController , UITabBarControllerDelegate, UITableViewDelegate, UITableViewDataSource{
+class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
     
     let radioController: RadioButtonController = RadioButtonController()
     var m = 0 ,h = 0, lapNumber = 0, modul = 0.0 , milis = 0, counter  = 0
@@ -47,6 +47,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     var mn : Int = 0
     var hr : Int = 0
     
+    private var audioLevel : Float!
     
     @IBOutlet weak var lapListTableView: UITableView!
     
@@ -149,8 +150,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-        listenVolumeButton()
+     
        
     }
     override func viewDidLoad() {
@@ -161,16 +161,23 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         
         print("cmin seçili mi \(userDefault.getValueForSwitch(keyName: "CminUnit"))")
         if (userDefault.getValueForSwitch(keyName: "CminUnit") == true) {
-            modul = 60
+            modul = 60.0
             milis = 100
             timeUnit = "Cmin."
             secUnitLabel.text = "Cminute"
+            TransferService.sharedInstance.modul = Int(modul)
+            TransferService.sharedInstance.milis = milis
         }
         if (userDefault.getValueForSwitch(keyName: "SecondUnit") == true) {
+           
+           
+            
             modul = 100.0
             milis = 60
             timeUnit = "Sec."
             secUnitLabel.text = "Second"
+            TransferService.sharedInstance.modul = Int(modul)
+            TransferService.sharedInstance.milis = milis
         }
         print("saniye seçili mi \(userDefault.getValueForSwitch(keyName: "SecondUnit"))")
         /*
@@ -182,8 +189,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         notificationCenter.addObserver(self, selector: #selector((self.screenSaverOnOff)), name: .screenSaverOff, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.TimeUnitSelect), name: .timeUnitSelection, object: nil)
      
-        title = "Industrial Chronometer"
+       
         timeLabel.textColor = UIColor(named: "Color")
+        
         aveCycTimeLabel.textColor = UIColor(named : "Color")
         minCycTimeLabel.textColor = UIColor(named : "Color")
         maxCycTimeLabel.textColor = UIColor(named : "Color")
@@ -196,17 +204,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
       
         
         //******
-        timeLabel.text = "00:00:00:00"
-        
-        
-        self.tabBarController?.delegate = self
-        
-        tabBarItem.title = "Chrono"
+        timeLabel.text = "00:00:00"
+       
         startButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         resetTimer.isEnabled = false
         resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
         resetTimer.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         lapButton.isEnabled = false
+    
         lapButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
         lapButton.titleLabel!.font = UIFont(name: "DS-Digital", size: 17.0)
         saveButton.isEnabled = false
@@ -218,19 +223,23 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
       //  btnSecond.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
       //  btnHndrMin.titleLabel?.font =  UIFont(name: "DS-Digital", size: 17.0)
        
-        secUnitLabel.font = UIFont(name: "DS-Digital", size: 17.0)
+        secUnitLabel.font = UIFont(name: "DS-Digital", size: 25.0)
+        secUnitLabel.textColor = UIColor(named: "Color")
         //cMinUnitLabel.font = UIFont(name: "DS-Digital", size: 12.0)
         cycPerHourLabel.layer.borderWidth = 1
         cycPerHourLabel.layer.cornerRadius = 10
         cycPerHourLabel.layer.borderColor = UIColor.red.cgColor
+        cycPerHourLabel.textColor = UIColor(named: "Color")
         
         cycPerMinuteLabel.layer.borderWidth = 1
         cycPerMinuteLabel.layer.cornerRadius = 10
         cycPerMinuteLabel.layer.borderColor = UIColor.red.cgColor
+        cycPerMinuteLabel.textColor = UIColor(named: "Color")
         
         observationTimer.layer.borderWidth = 1
         observationTimer.layer.cornerRadius = 10
         observationTimer.layer.borderColor = UIColor.red.cgColor
+        observationTimer.textColor = UIColor(named: "Color")
         
         minCycTimeLabel.layer.borderWidth = 1
         maxCycTimeLabel.layer.borderWidth = 1
@@ -260,14 +269,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             milis = 60
             timeUnit = "Sec."
             secUnitLabel.text = "Second"
-            
+           
             
         }
         else { // saniye Seçili ise
             print("Saniye Kapatıldı")
             userDefault.setValueForSwitch(value: false, keyName: "SecondUnit")//saniyeyi kapattı
             userDefault.setValueForSwitch(value: true, keyName: "CminUnit") //cmin açtı
-            modul = 60
+            modul = 60.0
             milis = 100
             timeUnit = "Cmin."
             secUnitLabel.text = "Cminute"
@@ -304,7 +313,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             userDefault.setValueForSwitch(value: false, keyName: "PauseLap")
         }
     }
-    
+    /**
+     Lap tuşuna basıldıkça timer üzerindeki değeri alacak.
+     */
     @IBAction func takeLap(_ sender: Any) {
         
         
@@ -347,10 +358,11 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         aveCycTimeLabel.text = "\(String( format: "%.2f",ave )) \(timeUnit)"
         
         cycPerMinute = Double(lapsVal.CalculateCycleTimePerMinute(laps: lapsVal.cycleTime))
+        TransferService.sharedInstance.cycPerMinute = cycPerMinute
         
         cycPerHour = Double(lapsVal.CalculateCycleTimePerHour(laps: lapsVal.cycleTime))
         
-        
+        TransferService.sharedInstance.cycPerHour = cycPerHour
         cycPerMinuteLabel.text = String( format: "%.2f",(cycPerMinute) )
         cycPerHourLabel.text = String( format: "%.2f",(cycPerHour) )
         
@@ -387,66 +399,130 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         //alert yaratma
         let resetAlert = UIAlertController (title:"Clear All Data", message: "Would you like to reset your study ?", preferredStyle: .alert)
         
-        //butonları ekleme
-        resetAlert.addAction(UIAlertAction(title: "Reset", style: .default,handler: { UIAlertAction in
-            self.startButton.isEnabled = true
-            
-            TimerStartControl.timerStartControl.timerStarted = false
-            
-            //self.radioController.buttonsArray[0].isEnabled = true
-           // self.radioController.buttonsArray[1].isEnabled = true
-            self.timer.invalidate()
-            self.isPlaying = false
-            self.isPaused = false
-            self.counter = 0
-            self.h = 0
-            self.m = 0
-            self.mscd = 0
-            self.scd = 0
-            self.mn = 0
-            self.hr = 0
-            
-            self.timeLabel.text = "00:00:00:00"
-            self.maxCycTimeLabel.text = ""
-            self.minCycTimeLabel.text = ""
-            self.aveCycTimeLabel.text = ""
-            self.cycPerHourLabel.text = ""
-            self.cycPerMinuteLabel.text = ""
-            self.observationTimer.text = ""
-           // self.milis = 0
-           // self.modul = 0
-            self.totalTimeArrayForLapList.removeAll()
-            self.laps.removeAll()
-            self.lapsVal.cycleTime.removeAll()
-            self.lapNumber = 0
-            //self.radioController.selectedButton?.isSelected = false
-            // self.stopTime = nil
-            self.startTime = Date()
-            self.isPlaying = false
-            self.startButton.setTitle("Start", for: .normal)
-            self.dataTransfer.lapDataToTransfer.removeAll()
-            self.lapListTableView.reloadData()
-            self.saveButton.isEnabled = false
-            self.saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
-            self.resetTimer.isEnabled = false
-            self.resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
-            
-            NotificationCenter.default.post(name: Notification.Name("ResetTimer"), object: nil)
-        }))
+        //Message fontu
+        resetAlert.setValue(NSAttributedString(string: resetAlert.message!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital", size: 22.0 ),
+             NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                        
+            ]), forKey: "attributedMessage")
+                                                                                        
+         //Title fonut
+        resetAlert.setValue(NSAttributedString(string: resetAlert.title!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital-Bold", size: 25.0),
+             NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                        
+            ]), forKey: "attributedTitle")
+                                                              
         
-        resetAlert.addAction(UIAlertAction(title:" Cancel",style: .default,handler: nil))
+        
+//        let attributedText = NSMutableAttributedString.init(string: "Would you like to reset your study ?")
+//
+//        let range = NSRange(location: 0, length: attributedText.length)
+//
+//
+//        attributedText.addAttribute(NSAttributedString.Key.kern, value: 1, range: range)
+//        attributedText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 12.0)], range: range)
+      //  attributedText.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "DS-Digital", size: 20.0)!, range: range)
+     
+      
+        //butonları ekleme
+       
+        
+       
+        let actionReset = UIAlertAction(title: "Reset", style: .default,handler: {
+            UIAlertAction in
+            
+            self.resetConfig()
+                                           
+        })
+         
+        let actionCancel = UIAlertAction(title: "Cancel",style: .cancel
+                                         ,handler: nil)
+        
+     // actionReset.setValue(actionResetTitle, forKey: "title")
+        
+          resetAlert.addAction(actionReset)
+        
+        resetAlert.addAction(actionCancel)
         
         self.present(resetAlert,animated: true,completion: nil)
         
+   let  actionResetTitle = NSAttributedString(string: actionReset.title!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital", size: 22.0 ),
+                                                                                       NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                      
+                                                                                      ])
+        let  actionCancelTitle = NSAttributedString(string: actionCancel.title!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital", size: 22.0 ),
+                                                                                            NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                           
+                                                                                           ])
+    
+        guard let label = (actionReset.value(forKey: "__representer") as AnyObject).value(forKey: "label") as? UILabel else { return }
+                   label.attributedText = actionResetTitle
+            
+        guard let label = (actionCancel.value(forKey: "__representer") as AnyObject).value(forKey: "label") as? UILabel else { return }
+                   label.attributedText = actionCancelTitle
+            
+     
         
         
-        
+           
         /*
          silinecekler
          laps.
          lapsVal.cycleTime.
          */
         
+    }
+    func resetConfig(){
+        NotificationCenter.default.post(name: Notification.Name("ResetTimer") ,
+
+    object: nil)
+
+        self.startButton.isEnabled = true
+        
+        TimerStartControl.timerStartControl.timerStarted = false
+        
+        //self.radioController.buttonsArray[0].isEnabled = true
+       // self.radioController.buttonsArray[1].isEnabled = true
+        self.timer.invalidate()
+        self.isPlaying = false
+        self.isPaused = false
+        self.counter = 0
+        self.h = 0
+        self.m = 0
+        self.mscd = 0
+        self.scd = 0
+        self.mn = 0
+        self.hr = 0
+        
+        self.timeLabel.text = "00:00:00"
+        self.maxCycTimeLabel.text = ""
+        self.minCycTimeLabel.text = ""
+        self.aveCycTimeLabel.text = ""
+        self.cycPerHourLabel.text = ""
+        self.cycPerMinuteLabel.text = ""
+        self.observationTimer.text = ""
+       // self.milis = 0
+       // self.modul = 0
+        self.totalTimeArrayForLapList.removeAll()
+        self.laps.removeAll()
+        self.lapsVal.cycleTime.removeAll()
+        self.lapNumber = 0
+        //self.radioController.selectedButton?.isSelected = false
+        // self.stopTime = nil
+        self.startTime = Date()
+        self.isPlaying = false
+        self.startButton.setTitle("Start", for: .normal)
+        self.dataTransfer.lapDataToTransfer.removeAll()
+        self.lapListTableView.reloadData()
+        self.saveButton.isEnabled = false
+        self.saveButton.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+        self.resetTimer.isEnabled = false
+        self.resetTimer.backgroundColor = UIColor(red : 0.77, green: 0.87, blue: 0.96, alpha: 1.00)
+        
+        
+   
+    
+    
+    
     }
     func PauseTimer() {
       
@@ -458,6 +534,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         }
         
         timer.invalidate()
+        startButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
         startButton.setTitle("Continue", for: .normal)
         
         stopTime = lapsVal.setMomentTime()
@@ -477,10 +554,19 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             
             switch (titleButton){
                 
+                /*
+                 BUtton larda veya elemanlarda font ları değiştirmek için
+                 style : default olarak  ayarlaman lazım
+                 main storyboard üzerinde
+                 */
             case ("Start"):
                 TimerStartControl.timerStartControl.timerStarted = true
                 startButton.setTitle("Pause", for: .normal)
+                startButton.titleLabel?.font = UIFont(name: "DS-Digital", size: 17.0)
+             
+               
                 titleButton = "Pause"
+                
                 isPaused = false
                 
                 timer = Timer.scheduledTimer(timeInterval: modul/10000, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
@@ -500,10 +586,10 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
                 
                 if (modul == 60 ){
               //      radioController.buttonsArray[0].isEnabled = false
-                    secUnitLabel.text = "Cminute"
+                  //  secUnitLabel.text = "Cminute"
                 }else {
                 //radioController.buttonsArray[1].isEnabled = false
-                    secUnitLabel.text = "Second"
+                 //   secUnitLabel.text = "Second"
                 }
                 
                 break
@@ -530,17 +616,24 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             self.present(unitAlert,animated: true,completion: nil)
         }
     }
-    
+    /***
+     bu fonksiyonda
+     *  mscd : milisaniyenin alacağı değeri gösterir. saniye olarak 1/100 e ayarlanmıştır.
+     100 mscd = 1 sn olacak şekilde ayarlı.
+     * milis ise ,zaman birimi seçimine göre değişir. Eğere seçim saniye için milis 60 değerinde 0lanır.
+     cmin ise 100 değerinde 0lanır.
+     counter ile scd aynı amaçla kullanılmış. tekrar yapılmış. Silersen lap alırken hesaplar karışır.
+     */
     @objc func UpdateTimer (){
         
         mscd += 1;
-        
-        if (mscd == 60){
+       
+        if (mscd == 100){
             scd += 1
             counter += 1
             mscd = 0
         }
-        else if (scd == 60){
+        else if (scd ==  (milis)){
             mn += 1
             scd = 0
             m += 1
@@ -552,11 +645,12 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             h += 1
             m = 0
         }
+        
         /* HARFLERİN BİR KISMINI FARKLI KARAKTERDE YAZMAK*/
         var timerText = String(String(String(hr).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(mn).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) + ":" + String(String(String(scd).reversed()).padding(toLength: 2, withPad: "0", startingAt: 0).reversed()) +  "." + String(String(String(mscd).reversed()).padding(toLength: 2, withPad: " ", startingAt: 0).reversed())
         
         var slsText = NSMutableAttributedString.init(string: timerText)
-        slsText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 70.0)], range: NSMakeRange(8,3))
+        slsText.setAttributes([NSMutableAttributedString.Key.font: UIFont(name: "DS-Digital", size: 20.0)], range: NSMakeRange(8,3))
         
         //timeLabel.text = (String ( format: "%02ld:%02ld:%02ld.%02ld" ,h,m,counter,mscd))
         timeLabel.attributedText =  slsText
@@ -580,7 +674,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     
     func transferLapToChart (lapnumber : Int){
         
-        _ = storyboard?.instantiateViewController(withIdentifier: "ChartViewController") as! ChartViewController
+        _ = storyboard?.instantiateViewController(withIdentifier: "ChartUIViewController") as! ChartUIViewController
         
         
     }
@@ -592,7 +686,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let lapCell = self.lapListTableView.dequeueReusableCell(withIdentifier: "lapList", for: indexPath) as! LapListCellTableViewCell
       
-        
+       
         //        if #available(iOS 14.0, *) {
         //            var contentLapList = lapCell.defaultContentConfiguration()
         //            var reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
@@ -602,6 +696,14 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         //            lapCell.lapNumberLabel.text = String (reverseOrderedLaps.count)
         //            lapCell.contentConfiguration = contentLapList
         //        } else {
+        switch indexPath.row % 2 {
+        case 0:
+            lapCell.backgroundColor = UIColor(named: "ColorForLapTableView0")
+        case 1:
+            lapCell.backgroundColor = UIColor(named: "ColorForLapTableView1")
+        default:
+            lapCell.backgroundColor = .systemBlue
+        }
         let reverseOrderedLaps : [Float] = Array(lapsVal.cycleTime.reversed())
         
         lapCell.lapValueLabel.text = (String (format: "%.2f",(reverseOrderedLaps[indexPath.row] * Float( milis))))
@@ -609,6 +711,9 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
         lapCell.totalTimeLabel.text = totalTimeArrayForLapList[indexPath.row]
         
         
+        lapCell.lapValueLabel.textColor =  UIColor(named : "Color")
+        lapCell.lapNumberLabel.textColor =  UIColor(named : "Color")
+        lapCell.totalTimeLabel.textColor =  UIColor(named : "Color")
         //}
         
         return lapCell
@@ -621,7 +726,7 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
      * observalue volume key pressed assign method
      * MPVolumeView extension to set new value of volume level
      */
-    private var audioLevel : Float = 0.0
+   
     func listenVolumeButton() {
         // close volume slider
         let volumeView = MPVolumeView(frame: .zero)
@@ -658,20 +763,20 @@ class ViewController: UIViewController , UITabBarControllerDelegate, UITableView
             }
             
             audioLevel = audioSession.outputVolume
-            
+            print(" ses seviyesi--> \(audioLevel)")
             if audioSession.outputVolume > 0.9375{
                 MPVolumeView.setVolume(0.9375)
                 print("volume maxi")
-                //
+                print(audioLevel)
                 audioLevel = 0.9375
             }
             if audioSession.outputVolume < 0.0625 {
-                MPVolumeView.setVolume(0.0625)
-                
+                MPVolumeView.setVolume(0.9375)
+
                 print("volume mini")
-                //
-                audioLevel = 0.0625
-                
+                print(audioLevel)
+                audioLevel = 0.9375
+
             }
             
         }

@@ -17,7 +17,7 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
     @IBOutlet weak var tableView: UITableView!
     var chosen : ( Int,Int) = (0,0)
     var switchON : Bool?  // krono çalışmaz ise true olacak. timerStart a göre
-    var selectedSwitchIndex: Int?
+    var selectedSwitchIndex: Int? = 0
         
     let userDefaults = UserDefaults.standard
     
@@ -33,13 +33,14 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             
             
             
-                                                                    SettingIcon(label: "Screen saver on",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true), SettingIcon(label: "Time unit second",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
-           SettingIcon(label: "Time unit hunderths of minute",icon: UIImage(systemName: "circle"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),SettingIcon(label: "Pause button takes lap when it's triggered",icon: UIImage(named: "pauseLap"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true)
+                                                                    SettingIcon(label: "Screen saver on",icon: UIImage(systemName: "display"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true), SettingIcon(label: "Time unit second",icon: UIImage(systemName: "s.circle.fill"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
+                                                                    SettingIcon(label: "Time unit hunderths of minute",icon: UIImage(named: "cmin"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
+          SettingIcon(label: "Pause lap active",icon: UIImage(systemName:"timelapse"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true)
                                                                     
                                                                     
                                                                    ]))
         self.settingIcon.append(Section(title: "General", option: [SettingIcon(label: "Policy",icon: UIImage(named: "terms"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: false),
-                                                                 SettingIcon(label:"About",icon: UIImage(named: "about"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: false),
+                                                                   SettingIcon(label:"About",icon: UIImage(named: "infosvg"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: false),
                                                                  SettingIcon(label: "Rate App",icon: UIImage(systemName: "star.fill"), iconBackgroundColor: UIColor.red,width: 20.0,heigth: 20.0,handler: {},switchHide: false)]))
         
         
@@ -64,7 +65,7 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
          
         //header.textLabel?.textColor = UIColor(cgColor: CGColor.init(red: 45/255, green: 34/255, blue: 227/255, alpha: 1))
        
-        header.textLabel?.font = UIFont(name: "DS-DIGITAL-BOLD", size: 17.0)
+        header.textLabel?.font = UIFont(name: "DS-DIGITAL-BOLD", size: 22.0)
    
         
      
@@ -90,16 +91,56 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LapListCellTableViewCell
         
-        
+        if indexPath.section < 1{
+        switch indexPath.row{
+    
+        case 3:
+        if userDefaults.getValueForSwitch(keyName: "PauseLap") == false
+        {
+            cell?.toggleSwitch.setOn(false, animated: false) // sayfa açıldığında swici off tutacak
+        }else if userDefaults.getValueForSwitch(keyName: "PauseLap") == true {
+            cell?.toggleSwitch.setOn(true, animated: false)
+        }
+         
+           
+        case 0:
+            if userDefaults.getValueForSwitch(keyName: "ScreenSaver") == false
+            {
+                cell?.toggleSwitch.setOn(false, animated: false) // sayfa açıldığında swici off tutacak
+            }else if userDefaults.getValueForSwitch(keyName: "ScreenSaver") == true {
+                cell?.toggleSwitch.setOn(true, animated: false)
+          
+            }
+        case 1 :
+         
+            if userDefaults.getValueForSwitch(keyName: "SecondUnit") == true {
+                cell?.toggleSwitch.setOn(true, animated: false)
+
+            }else {
+                cell?.toggleSwitch.setOn(false, animated: false)
+            }
+        case 2 :
+           
+            if userDefaults.getValueForSwitch(keyName: "CminUnit") == true {
+              cell?.toggleSwitch.setOn(true, animated: false)
+            }else{
+                cell?.toggleSwitch.setOn(false, animated: false)
+            }
+       
+        default:
+            return cell!
+        }
+            
+        }
         tableView.rowHeight = 50
-        
+        chosen = (indexPath.row,indexPath.section)
 
         
         //cell?.aboutLabel.textColor = UIColor(cgColor: CGColor.init(red: 45/255, green: 34/255, blue: 227/255, alpha: 1))
         cell?.aboutLabel.sizeToFit()
-        cell?.aboutLabel?.font = UIFont(name: "DS-DIGITAL", size: 18.0)
-        cell?.aboutLabel?.textColor = UIColor(cgColor: CGColor.init(red: 0/255, green: 117/255, blue: 227/255, alpha: 1))
-        
+        cell?.aboutLabel?.font = UIFont(name: "DS-DIGITAL", size: 20.0)
+        cell?.aboutLabel.textColor = UIColor(named: "Color")
+        cell?.aboutLabel.text = settingIcon[indexPath.section].option[indexPath.row].label
         
         cell?.icon.tintColor = settingIcon[indexPath.section].option[indexPath.row].iconBackgroundColor
         cell?.icon.image =
@@ -112,13 +153,19 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         cell?.icon.layer.cornerRadius = 10
         cell?.icon.layer.borderWidth = 0
         cell?.selectionStyle = .none
-        cell?.aboutLabel.text = settingIcon[indexPath.section].option[indexPath.row].label
         
-        cell?.toggleSwitch.tag = indexPath.row // give tag to each toggle switch
+      
+      
         
-        let isSelected = indexPath.row == selectedSwitchIndex
-        cell?.toggleSwitch.isOn = isSelected
-        
+        cell?.toggleSwitch.tag = indexPath.row + 4*indexPath.section // her bir swice ayrı bir tag verecek
+      
+       // give tag to each toggle switch
+      
+          
+//                let isSelected = cell?.toggleSwitch.tag == selectedSwitchIndex
+//                print("isSelected \(isSelected)")
+//                cell?.toggleSwitch.isOn = isSelected
+      
         
         if TimerStartControl.timerStartControl.timerStarted == true {
             cell?.toggleSwitch.isEnabled = false
@@ -127,13 +174,14 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             cell?.toggleSwitch.isEnabled = true
         }
        
+//        if indexPath.section == 1 {
+//            if settingIcon[indexPath.section].option[indexPath.row].switchHide == false // satırda switch istemiyoruz
+//           {
+//            cell?.toggleSwitch.isHidden = true
+//
+//           }
+//        }
       
-        if settingIcon[indexPath.section].option[indexPath.row].switchHide == false // satırda switch istemiyoruz
-        {
-            cell?.toggleSwitch.isHidden = true
-          
-          
-        }
         
         cell?.toggleSwitch.addTarget(self, action: #selector(self.toggleTriggered), for: .primaryActionTriggered)
         
@@ -142,52 +190,19 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
          
          
          */
-        if indexPath.section < 1{
-        switch indexPath.row{
-    
-        case 3:
-        if userDefaults.getValueForSwitch(keyName: "PauseLap") == false
-        {
-            cell?.toggleSwitch.setOn(false, animated: true) // sayfa açıldığında swici off tutacak
-        }else if userDefaults.getValueForSwitch(keyName: "PauseLap") == true {
-            cell?.toggleSwitch.setOn(true, animated: true)
-        }
-         
-           
-        case 0:
-            if userDefaults.getValueForSwitch(keyName: "ScreenSaver") == false
-            {
-                cell?.toggleSwitch.setOn(false, animated: true) // sayfa açıldığında swici off tutacak
-            }else if userDefaults.getValueForSwitch(keyName: "ScreenSaver") == true {
-                cell?.toggleSwitch.setOn(true, animated: true)
-          
-            }
-        case 1 :
-            if userDefaults.getValueForSwitch(keyName: "SecondUnit") == true {
-                cell?.toggleSwitch.setOn(true, animated: true)
-                
-            }else {
-                cell?.toggleSwitch.setOn(false, animated: true)
-            }
-        case 2 :
-            if userDefaults.getValueForSwitch(keyName: "CminUnit") == true {
-                cell?.toggleSwitch.setOn(true, animated: true)
-            }else{
-                cell?.toggleSwitch.setOn(false, animated: true)
-            }
+        
        
-        default:
-            return cell!
-        }
-            
-        }
         
-        
+        if settingIcon[indexPath.section].option[indexPath.row].switchHide == false // satırda switch istemiyoruz
+                  {
+                   cell?.toggleSwitch.isHidden = true
+       
+                  }
         return cell!
         
     }
     @objc func toggleTriggered (_ sender: UISwitch) {
-        
+       
         print("sender \(sender.tag)")
         if sender.tag == 0 {
             NotificationCenter.default.post(name: .screenSaverOff, object: nil)
@@ -197,12 +212,12 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         else if sender.tag == 1{
             
         
-            
+        
             
             NotificationCenter.default.post(name: .timeUnitSelection, object: nil)
          //   NotificationCenter.default.post(name: .pauseLapOff, object: nil)
 //
-//           if !(sender.isOn) {
+//           if (sender.isOn) {
 //                sender.setOn(false, animated: true)
 //
 //            }else
@@ -210,7 +225,7 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
 //                sender.setOn(true, animated: true)
 //
 //            }
-            print("Second ")
+//            print("Second ")
         }
        
         else if sender.tag == 2 {
@@ -221,17 +236,18 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         else if sender.tag == 3 {
             NotificationCenter.default.post(name: .pauseLapOff, object: nil)
         }
-        if sender.tag > 0 {
-            guard (sender.isOn ) else {
-               
-                // selectedSwştchIndex i nil yapıyor eğer switch kapatıldı ise
-                selectedSwitchIndex = nil
-                tableView.reloadData()
-                return
-            }
-            selectedSwitchIndex = sender.tag
-            tableView.reloadData()
-        }
+        
+//            guard (sender.isOn ) else {
+//
+//                // selectedSwştchIndex i nil yapıyor eğer switch kapatıldı ise
+//                selectedSwitchIndex = 0
+//                tableView.reloadData()
+//                return
+//            }
+//            selectedSwitchIndex = sender.tag
+        
+        tableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

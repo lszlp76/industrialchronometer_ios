@@ -4,15 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>DS-DIGI.ttf</string>
-		<string>DS-DIGIB.ttf</string>
+		<string>DS-DIGI.TTF</string>
+		<string>DS-DIGIB.TTF</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UIApplicationSupportsTabbedSceneCollection</key>
-		<false/>
 		<key>UISceneConfigurations</key>
 		<dict>
 			<key>UIWindowSceneSessionRoleApplication</key>
