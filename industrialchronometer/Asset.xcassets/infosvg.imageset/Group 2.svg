@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43.583" height="35.115" viewBox="0 0 43.583 35.115">
+  <g id="Group_2" data-name="Group 2" transform="translate(-479 -8.696)">
+    <g id="Group_1" data-name="Group 1" transform="translate(479 8.947)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="38" height="34" rx="6" transform="translate(0 0.864)" fill="#fff"/>
+      <path id="Rectangle_1_-_Outline" data-name="Rectangle 1 - Outline" d="M5.5,1.989A3.836,3.836,0,0,0,1.834,5.967V27.844A3.836,3.836,0,0,0,5.5,31.822H33a3.836,3.836,0,0,0,3.667-3.978V5.967A3.836,3.836,0,0,0,33,1.989H5.5M5.5,0H33a5.748,5.748,0,0,1,5.5,5.967V27.844A5.748,5.748,0,0,1,33,33.811H5.5A5.748,5.748,0,0,1,0,27.844V5.967A5.748,5.748,0,0,1,5.5,0Z" transform="translate(0 1.053)" fill="#14d3bd"/>
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="2.5" cy="2.5" r="2.5" transform="translate(6 5.864)" fill="#fff"/>
+      <path id="Ellipse_1_-_Outline" data-name="Ellipse 1 - Outline" d="M2.5,1A1.5,1.5,0,1,0,4,2.5,1.5,1.5,0,0,0,2.5,1m0-1A2.5,2.5,0,1,1,0,2.5,2.5,2.5,0,0,1,2.5,0Z" transform="translate(6 6.011)" fill="#02f5aa"/>
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="2.5" cy="2.5" r="2.5" transform="translate(29 26.864)" fill="#fff"/>
+      <path id="Ellipse_2_-_Outline" data-name="Ellipse 2 - Outline" d="M2.5,1A1.5,1.5,0,1,0,4,2.5,1.5,1.5,0,0,0,2.5,1m0-1A2.5,2.5,0,1,1,0,2.5,2.5,2.5,0,0,1,2.5,0Z" transform="translate(29.193 26.864)" fill="#11f5b8"/>
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="2.5" cy="2.5" r="2.5" transform="translate(6 26.864)" fill="#fff"/>
+      <path id="Ellipse_3_-_Outline" data-name="Ellipse 3 - Outline" d="M2.5,1A1.5,1.5,0,1,0,4,2.5,1.5,1.5,0,0,0,2.5,1m0-1A2.5,2.5,0,1,1,0,2.5,2.5,2.5,0,0,1,2.5,0Z" transform="translate(6 26.864)" fill="#02f5aa"/>
+      <circle id="Ellipse_4" data-name="Ellipse 4" cx="2.5" cy="2.5" r="2.5" transform="translate(29 4.864)" fill="#fff"/>
+      <path id="Ellipse_4_-_Outline" data-name="Ellipse 4 - Outline" d="M2.5,1A1.5,1.5,0,1,0,4,2.5,1.5,1.5,0,0,0,2.5,1m0-1A2.5,2.5,0,1,1,0,2.5,2.5,2.5,0,0,1,2.5,0Z" transform="translate(29.193 5.017)" fill="#02f5aa"/>
+      <text id="About" transform="matrix(0.819, -0.574, 0.574, 0.819, 7.702, 19.251)" fill="#18dd73" font-size="8" font-family="KohinoorBangla-Bold, Kohinoor Bangla" font-weight="700"><tspan x="0" y="8">About</tspan></text>
+    </g>
+  </g>
+</svg>
