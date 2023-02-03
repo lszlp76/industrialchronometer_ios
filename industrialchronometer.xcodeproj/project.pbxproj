@@ -86,7 +86,7 @@
 		F9B1BD5127A9118D0062B161 /* LapsVal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapsVal.swift; sourceTree = "<group>"; };
 		F9D9AE1A27B528850063CAB9 /* FileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListViewController.swift; sourceTree = "<group>"; };
 		F9F9055D27CEB0C500179DCB /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
-		F9FA1CD42977DFBA00778299 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Asset.xcassets; path = /Users/ulasozalp/Documents/appsWork/industrialchronometer/industrialchronometer/Model/Asset.xcassets; sourceTree = "<absolute>"; };
+		F9FA1CD42977DFBA00778299 /* Asset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Asset.xcassets; path = /Users/ulasozalp/Documents/appsWork/industrialchronometer/industrialchronometer/Asset.xcassets; sourceTree = "<absolute>"; };
 		F9FA1CD52977E03700778299 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGI.TTF"; path = "/Users/ulasozalp/Documents/appsWork/industrialchronometer/industrialchronometer/fonts/DS-DIGI.TTF"; sourceTree = "<absolute>"; };
 		F9FA1CD62977E03800778299 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DS-DIGIB.TTF"; path = "/Users/ulasozalp/Documents/appsWork/industrialchronometer/industrialchronometer/fonts/DS-DIGIB.TTF"; sourceTree = "<absolute>"; };
 		F9FA1CD92977E44500778299 /* Laps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Laps.swift; sourceTree = SOURCE_ROOT; };
@@ -621,6 +621,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = industrialchronometer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Industrial Chronometer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -631,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der ";
 				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -653,6 +654,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = industrialchronometer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Industrial Chronometer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -663,7 +665,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.02;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der ";
 				PRODUCT_BUNDLE_IDENTIFIER = zlpls.industrialchronometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
