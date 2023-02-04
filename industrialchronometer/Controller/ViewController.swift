@@ -142,8 +142,17 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
                              
                              }
         else {
-            let noLapAlert = UIAlertController(title: "Laps not exist!", message: "You have to catch one lap at least", preferredStyle: .alert)
+            let noLapAlert = UIAlertController(title: " ⚠️ Laps not exist", message: "You have to catch one lap at least", preferredStyle: .alert)
+            noLapAlert.setValue(UIImage(named: "cmin"), forKey: "image")
+            noLapAlert.setValue(NSAttributedString(string: noLapAlert.title!, attributes: [NSAttributedString.Key.font : UIFont(name: "DS-Digital-Bold", size: 25.0),
+                                                                                           NSAttributedString.Key.foregroundColor : UIColor(named: "Color")   ]                         ), forKey: "attributedTitle")
+            noLapAlert.setValue(NSAttributedString(string: noLapAlert.message!, attributes: [NSAttributedString.Key.font : UIFont(name: "DS-Digital", size: 22.0),
+                                                                                           NSAttributedString.Key.foregroundColor : UIColor(named: "Color")   ]                         ), forKey: "attributedMessage")
+            
             noLapAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            
+            
             self.present(noLapAlert,animated: true,completion: nil)
         }
        
