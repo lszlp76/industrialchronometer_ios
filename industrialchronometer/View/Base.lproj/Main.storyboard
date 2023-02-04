@@ -200,7 +200,7 @@
                                                         <color key="textColor" name="Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65k-G6-b7x">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65k-G6-b7x">
                                                         <rect key="frame" x="0.0" y="30" width="203" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="QJW-rs-SHl"/>
@@ -598,11 +598,12 @@
                         <outlet property="secUnitLabel" destination="rkq-Sh-Iqg" id="kum-Ch-su7"/>
                         <outlet property="startButton" destination="jm1-kg-Fyw" id="OxF-uL-E8u"/>
                         <outlet property="timeLabel" destination="yOk-PF-bO1" id="MFP-Bn-Gqi"/>
+                        <segue destination="4et-PD-6Vy" kind="show" identifier="toTimeUnitSelection" id="iu9-B1-bNp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911.59420289855075" y="683.96739130434787"/>
+            <point key="canvasLocation" x="2142" y="630"/>
         </scene>
         <!--File List View Controller-->
         <scene sceneID="01E-KZ-mBh">
@@ -654,14 +655,14 @@
             <objects>
                 <viewController storyboardIdentifier="AboutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4et-PD-6Vy" customClass="AboutViewController" customModule="industrialchronometer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1DN-T1-OWe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="tableViewStack" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-Sa-YIr" userLabel="tableViewStack">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lpb-6G-wpu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="40" id="JCu-yi-U9o" customClass="LapListCellTableViewCell" customModule="industrialchronometer" customModuleProvider="target">
@@ -756,11 +757,11 @@
             <objects>
                 <viewController title="WebViewController" id="0lz-kq-4Dk" customClass="WebViewController" customModule="industrialchronometer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hiW-HY-Hsx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" restorationIdentifier="aboutStackView" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-6R-LOD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutImage" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qAz-e7-1Ej">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -775,7 +776,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYY-rX-QrL">
-                                        <rect key="frame" x="0.0" y="120" width="414" height="572"/>
+                                        <rect key="frame" x="0.0" y="120" width="414" height="596"/>
                                         <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <wkWebViewConfiguration key="configuration">
                                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -874,6 +875,9 @@
             <point key="canvasLocation" x="339" y="1061"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iu9-B1-bNp"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="aboutImage" width="512" height="512"/>
         <namedColor name="AccentColor">

@@ -111,7 +111,7 @@ class ChartUIViewController: UIViewController {
          
           var unitFromChrono : String
           unitFromChrono = TransferService.sharedInstance.timeUnitToTransfer
-          var dataFromChrono = TransferService.sharedInstance.lapDataToTransfer
+          let dataFromChrono = TransferService.sharedInstance.lapDataToTransfer
          
           
      

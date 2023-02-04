@@ -81,7 +81,7 @@ class FileListViewController: UIViewController , UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = self.fileList.dequeueReusableCell(withIdentifier: "fileNameCell", for: indexPath)
+        let cell = self.fileList.dequeueReusableCell(withIdentifier: "fileNameCell", for: indexPath)
         
         cell.textLabel?.text = fileListArray[indexPath.row]
         cell.textLabel?.font = UIFont(name: "DS-Digital", size: 18.0)

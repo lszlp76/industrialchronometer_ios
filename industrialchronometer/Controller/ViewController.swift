@@ -165,10 +165,11 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             milis = 100
             timeUnit = "Cmin."
             secUnitLabel.text = "Cminute"
+            secUnitLabel.backgroundColor = UIColor.systemBackground
             TransferService.sharedInstance.modul = Int(modul)
             TransferService.sharedInstance.milis = milis
         }
-        if (userDefault.getValueForSwitch(keyName: "SecondUnit") == true) {
+        else if (userDefault.getValueForSwitch(keyName: "SecondUnit") == true) {
            
            
             
@@ -176,9 +177,17 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             milis = 60
             timeUnit = "Sec."
             secUnitLabel.text = "Second"
+            secUnitLabel.backgroundColor = UIColor.systemBackground
             TransferService.sharedInstance.modul = Int(modul)
             TransferService.sharedInstance.milis = milis
         }
+        else
+        {
+            
+            secUnitLabel.backgroundColor = .red
+            secUnitLabel.text = "NO Unit"
+        }
+            
         print("saniye seçili mi \(userDefault.getValueForSwitch(keyName: "SecondUnit"))")
         /*
          Notificationu takip ediyor.Geldikçe selector fonksiyonunu tetikliyor
@@ -269,6 +278,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             milis = 60
             timeUnit = "Sec."
             secUnitLabel.text = "Second"
+            secUnitLabel.backgroundColor = UIColor.systemBackground
            
             
         }
@@ -280,6 +290,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             milis = 100
             timeUnit = "Cmin."
             secUnitLabel.text = "Cminute"
+            secUnitLabel.backgroundColor = UIColor.systemBackground
             
         }
             
@@ -609,11 +620,32 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             }
         }
         else {
+            
+            
+            
             let unitAlert = UIAlertController (title:"Time Unit",message: "Choose your time unit", preferredStyle: .alert)
-            unitAlert.addAction(UIAlertAction (title: "OK", style: .default,handler: { UIAlertAction in
+            unitAlert.setValue(NSAttributedString(string: unitAlert.message!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital", size: 22.0 ),
+                 NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                            
+                ]), forKey: "attributedMessage")
+            unitAlert.setValue(NSAttributedString(string: unitAlert.title!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital-Bold", size: 25.0 ),
+                 NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                            
+                ]), forKey: "attributedTitle")
+            
+            let chooseTimeUnit = UIAlertAction (title: "OK", style: .default,handler: { UIAlertAction in
+                self.performSegue(withIdentifier: "toTimeUnitSelection", sender:nil);
                 return
-            }))
+            })
+            unitAlert.addAction(chooseTimeUnit)
             self.present(unitAlert,animated: true,completion: nil)
+            
+            let  actionTitle = NSAttributedString(string: chooseTimeUnit.title!, attributes: [NSAttributedString.Key.font :UIFont(name: "DS-Digital", size: 22.0 ),
+                                                                                                NSAttributedString.Key.foregroundColor :UIColor(named: "Color")
+                                                                                               
+                                                                                               ])
+            guard let label = (chooseTimeUnit.value(forKey: "__representer") as AnyObject).value(forKey: "label") as? UILabel else { return }
+                       label.attributedText = actionTitle
         }
     }
     /***
