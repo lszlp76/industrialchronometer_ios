@@ -252,7 +252,11 @@
 		21569C37E481A9CAB245FF6454B00EA9 /* Trim.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trim.swift; path = Sources/Algorithms/Trim.swift; sourceTree = "<group>"; };
 		2191F23F74B052636B3EE18A6B922CD1 /* ChartDataEntryBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataEntryBase.swift; path = Source/Charts/Data/Implementations/Standard/ChartDataEntryBase.swift; sourceTree = "<group>"; };
 		23F44B10DA92098FE52AC7D3DDE8BF08 /* ChartColorTemplates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColorTemplates.swift; path = Source/Charts/Utils/ChartColorTemplates.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		248EB203AE249596FFC55952F5590D95 /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		248EB203AE249596FFC55952F5590D95 /* TinyConstraints */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TinyConstraints; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> main
 		2555CAB16F80C90AF145EC5AE442F3ED /* XAxis.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxis.swift; path = Source/Charts/Components/XAxis.swift; sourceTree = "<group>"; };
 		2781463BA1E43C64656D6CAF6E94E80E /* RadarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarHighlighter.swift; path = Source/Charts/Highlight/RadarHighlighter.swift; sourceTree = "<group>"; };
 		28BF8A33F9394F45413DB4BE0433AE83 /* CandleChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartData.swift; path = Source/Charts/Data/Implementations/Standard/CandleChartData.swift; sourceTree = "<group>"; };
@@ -351,13 +355,21 @@
 		9CB6C320433BBAB87742463B23B2A0DB /* PieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/PieChartDataSet.swift; sourceTree = "<group>"; };
 		9D08E4C1F0B7F11F6B176F8F626D723E /* Legend.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Legend.swift; path = Source/Charts/Components/Legend.swift; sourceTree = "<group>"; };
 		9D848B8BC24DC67F3C6A1AF6E58DE2A0 /* YAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YAxisRenderer.swift; path = Source/Charts/Renderers/YAxisRenderer.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+>>>>>>> main
 		9DBA1F7D7A3CE7399C998A2D1AAA163B /* ScatterChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartData.swift; path = Source/Charts/Data/Implementations/Standard/ScatterChartData.swift; sourceTree = "<group>"; };
 		9E32381345C31FFDC46F46B2882F19E9 /* Permutations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Permutations.swift; path = Sources/Algorithms/Permutations.swift; sourceTree = "<group>"; };
 		9EABCC3BBB55BA08DDDEA6ACD6F74466 /* FirstNonNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirstNonNil.swift; path = Sources/Algorithms/FirstNonNil.swift; sourceTree = "<group>"; };
 		9EF41852B95F885B3E02F658E2E2C9F5 /* BarLineScatterCandleBubbleChartData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleChartData.swift; path = Source/Charts/Data/Implementations/Standard/BarLineScatterCandleBubbleChartData.swift; sourceTree = "<group>"; };
 		9F54783CE4260E214D85E1062269E853 /* Charts-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Charts-umbrella.h"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Charts; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> main
 		A2E16A3B3EBEC7FB94063E13842DBAA0 /* HorizontalBarChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HorizontalBarChartRenderer.swift; path = Source/Charts/Renderers/HorizontalBarChartRenderer.swift; sourceTree = "<group>"; };
 		A2F42BE58C98B8DABC36656A5DC87805 /* MinMax.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MinMax.swift; path = Sources/Algorithms/MinMax.swift; sourceTree = "<group>"; };
 		A4DE161FB0533EC3385857276D89AAE4 /* CandleStickChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleStickChartView.swift; path = Source/Charts/Charts/CandleStickChartView.swift; sourceTree = "<group>"; };
@@ -425,7 +437,11 @@
 		F239FDFD3766F10DCAF6B93BF0CFB7E2 /* XAxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XAxisRenderer.swift; path = Source/Charts/Renderers/XAxisRenderer.swift; sourceTree = "<group>"; };
 		F23BDB8AF30D7327B42B4EB7CE2B9BFE /* ScatterChartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartView.swift; path = Source/Charts/Charts/ScatterChartView.swift; sourceTree = "<group>"; };
 		F370CB25F09AC8209CA31ED5006CD400 /* BubbleChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BubbleChartRenderer.swift; path = Source/Charts/Renderers/BubbleChartRenderer.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		F3E7458F7D38C89A9DE4BBACD3450C88 /* Algorithms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftAlgorithms; path = Algorithms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> main
 		F46CD717F8ACED0798BEA087BF47AF7D /* RadarChartDataSetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarChartDataSetProtocol.swift; path = Source/Charts/Data/Interfaces/RadarChartDataSetProtocol.swift; sourceTree = "<group>"; };
 		F54578BCC7836D2CC8DE130E3E16EDDF /* ViewPortHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ViewPortHandler.swift; path = Source/Charts/Utils/ViewPortHandler.swift; sourceTree = "<group>"; };
 		F6A468FF037769E682FBDB73BA655DF8 /* BarChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarChartDataProvider.swift; path = Source/Charts/Interfaces/BarChartDataProvider.swift; sourceTree = "<group>"; };
@@ -477,6 +493,10 @@
 				6B29933CEFDDF9E2D20455DBA7A0D482 /* Core */,
 				77C361896C13C78FE5396D29D16A40A5 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = Charts;
+>>>>>>> main
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -506,10 +526,17 @@
 		68E6949C7698EEC9E08DCF0EA6BA0301 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts.framework */,
 				E471A0B0C060FCDEB594A334822FC0DE /* Pods-industrialchronometer */,
 				F3E7458F7D38C89A9DE4BBACD3450C88 /* Algorithms.framework */,
 				248EB203AE249596FFC55952F5590D95 /* TinyConstraints.framework */,
+=======
+				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */,
+				E471A0B0C060FCDEB594A334822FC0DE /* Pods-industrialchronometer */,
+				F3E7458F7D38C89A9DE4BBACD3450C88 /* SwiftAlgorithms */,
+				248EB203AE249596FFC55952F5590D95 /* TinyConstraints */,
+>>>>>>> main
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -723,6 +750,10 @@
 				B7ACA92DBD8B9AA1D5A02C19967A066D /* Windows.swift */,
 				5FC5EC4639C3A62FD86EBE2DBFFCCFC1 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = SwiftAlgorithms;
+>>>>>>> main
 			path = SwiftAlgorithms;
 			sourceTree = "<group>";
 		};
@@ -738,6 +769,10 @@
 				910961C8B16AA0F00E8A57B188A7156A /* TinyEdgeInsets.swift */,
 				C6E9FE2267628C1FB44BD42AD1D0C1DA /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = TinyConstraints;
+>>>>>>> main
 			path = TinyConstraints;
 			sourceTree = "<group>";
 		};
@@ -751,6 +786,7 @@
 				30E9371DB5AF101136D37D1DD26D9B01 /* TinyConstraints-umbrella.h */,
 				BD0A0264A0545573D59BEF84683C6F55 /* TinyConstraints.debug.xcconfig */,
 				8603BD0AA6F2CF32D907E49CCC1E926E /* TinyConstraints.release.xcconfig */,
+<<<<<<< HEAD
 			);
 			name = "Support Files";
 			path = "../Target Support Files/TinyConstraints";
@@ -790,6 +826,47 @@
 				7D385CE9B40592E9BB8B7C2AE147C149 /* SwiftAlgorithms */,
 				A1DDFD623332F9F95C5666C201739135 /* TinyConstraints */,
 			);
+=======
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TinyConstraints";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E7DF81965CB7CFB9D16E915720970501 /* Pods */,
+				68E6949C7698EEC9E08DCF0EA6BA0301 /* Products */,
+				E1A6B44C1906A10CAF81334A6178E7A0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1A6B44C1906A10CAF81334A6178E7A0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				76032927EFCBB50AC291E6FC415C9ED0 /* Pods-industrialchronometer */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E7DF81965CB7CFB9D16E915720970501 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE2553CDFA6049C1D6D47AF2F8A10D /* Charts */,
+				7D385CE9B40592E9BB8B7C2AE147C149 /* SwiftAlgorithms */,
+				A1DDFD623332F9F95C5666C201739135 /* TinyConstraints */,
+			);
+>>>>>>> main
 			name = Pods;
 			sourceTree = "<group>";
 		};
@@ -1119,6 +1196,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		47BEA8AA5EE2A597C7EC1705227A6AC9 /* Sources */ = {
+<<<<<<< HEAD
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1154,6 +1232,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+=======
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1AA0ECA016B0F7C00FC712640090BA /* AdjacentPairs.swift in Sources */,
+				54E3842E4AB7E4FE69216136F53CCFBD /* Chain.swift in Sources */,
+				DDA2AC37EADD528701BB3712E6D06190 /* Chunked.swift in Sources */,
+				E3D823577255DF396D590E0400A703D9 /* Combinations.swift in Sources */,
+				E5ABF15C1FC5DD455B7752559D7F50B6 /* Compacted.swift in Sources */,
+				98378DA6D5E0991D01C6ED84F1B180C7 /* Cycle.swift in Sources */,
+				6D3CC34F781A67EACAEAFFAD0059B0E3 /* EitherSequence.swift in Sources */,
+				34AD67E74164E647CDCDFD5C0450910A /* FirstNonNil.swift in Sources */,
+				58D75A59AD75FDD63771716DE1A1AC5D /* FlattenCollection.swift in Sources */,
+				04FB3F8780D2768A45B1BD48E38A57F3 /* Indexed.swift in Sources */,
+				60AB45076BCDEAAFE7B37538B165BA4C /* Intersperse.swift in Sources */,
+				068E427FAC53F6877F6DEB08FF293550 /* Joined.swift in Sources */,
+				C645A8D8D949D9B9C7AD16E898686764 /* MinMax.swift in Sources */,
+				E7593F28C9C0EDE614284E57B6CC26FC /* Partition.swift in Sources */,
+				846828FB47A9344C382CE78B974DDCDB /* Permutations.swift in Sources */,
+				13C9166904C3F2EE5BF2A0EA97C272E1 /* Product.swift in Sources */,
+				86F8BDA573E68988ADFF7B60645AF464 /* Reductions.swift in Sources */,
+				95D3147CE7E4F505CE5A0894223634B4 /* Rotate.swift in Sources */,
+				1748F20BAAE3DBFD9D60BD2A33EB1CC6 /* Split.swift in Sources */,
+				A21C154AAF4908B46493BBA92EA74A56 /* Stride.swift in Sources */,
+				1319D28097CBD3B73E7E522D6160EEBD /* Suffix.swift in Sources */,
+				5A091DB38FB8C074565F24E23969CE37 /* SwiftAlgorithms-dummy.m in Sources */,
+				8B9786469FA66B25883FDCF45820A63F /* Trim.swift in Sources */,
+				A849CC157B04C51BA901D9744F538259 /* Unique.swift in Sources */,
+				7084E6A1EF2CDE3D72DA56D5C088AE65 /* Windows.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5759697D5DC27E619689A495624B9DB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+>>>>>>> main
 				D19B1F9A2FEAAB524582148F77558224 /* Pods-industrialchronometer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1177,6 +1292,7 @@
 
 /* Begin PBXTargetDependency section */
 		0F5BC109CE3BAF79D3557C242CDF1AD9 /* PBXTargetDependency */ = {
+<<<<<<< HEAD
 			isa = PBXTargetDependency;
 			name = SwiftAlgorithms;
 			target = 2C511EE63C6E7D5843B971D1E441119E /* SwiftAlgorithms */;
@@ -1188,6 +1304,19 @@
 			target = 2C511EE63C6E7D5843B971D1E441119E /* SwiftAlgorithms */;
 			targetProxy = 59D44D686279EBE47AAB86680B06997A /* PBXContainerItemProxy */;
 		};
+=======
+			isa = PBXTargetDependency;
+			name = SwiftAlgorithms;
+			target = 2C511EE63C6E7D5843B971D1E441119E /* SwiftAlgorithms */;
+			targetProxy = E4610A4F3A8EF9B0B8D6F8A425619EAC /* PBXContainerItemProxy */;
+		};
+		31934CF52A592B5D8FD60D136D098EB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftAlgorithms;
+			target = 2C511EE63C6E7D5843B971D1E441119E /* SwiftAlgorithms */;
+			targetProxy = 59D44D686279EBE47AAB86680B06997A /* PBXContainerItemProxy */;
+		};
+>>>>>>> main
 		367E2C179EB1395EEBE0D0D6B4CE73BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
@@ -1256,7 +1385,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+>>>>>>> main
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1329,7 +1462,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/TinyConstraints/TinyConstraints-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/TinyConstraints/TinyConstraints-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1562,7 +1695,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftAlgorithms/SwiftAlgorithms-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+>>>>>>> main
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1597,7 +1734,11 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Charts/Charts-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+=======
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+>>>>>>> main
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

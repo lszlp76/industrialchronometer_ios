@@ -28,12 +28,17 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         
         self.settingIcon.append(Section(title: "Settings", option: [
+<<<<<<< HEAD
                                                                     SettingIcon(label: "Screen saver activate",icon: UIImage(systemName: "display"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true), SettingIcon(label: "Time unit second",icon: UIImage(systemName: "s.circle.fill"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
                                                                    
                                                                     SettingIcon(label: "Time unit hundredths of minute",icon: UIImage(named: "cmin"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
                                                                     /*
                                                                     SettingIcon(label: "1/100 active",icon: UIImage(systemName:"timelapse"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true),*/
                                                                            
+=======
+                                                                    SettingIcon(label: "Screen saver on",icon: UIImage(systemName: "display"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true), SettingIcon(label: "Time unit second",icon: UIImage(systemName: "s.circle.fill"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
+                                                                    SettingIcon(label: "Time unit hunderths of minute",icon: UIImage(named: "cmin"), iconBackgroundColor: UIColor.red, width :20.0,heigth :20.0, handler: {},switchHide: true),
+>>>>>>> main
           SettingIcon(label: "Pause lap active",icon: UIImage(systemName:"timelapse"), iconBackgroundColor: UIColor.blue,width: 20.0,heigth: 20.0, handler: { },switchHide: true)
                                                              
                                                                     
@@ -176,6 +181,7 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
         cell?.icon.layer.borderWidth = 0
         cell?.selectionStyle = .none
         
+<<<<<<< HEAD
       
             
             
@@ -187,6 +193,15 @@ class AboutViewController: UIViewController ,UITableViewDelegate,UITableViewData
             }
             
        
+=======
+        if settingIcon[indexPath.section].option[indexPath.row].switchHide == false // satırda switch istemiyoruz
+                  {
+            cell?.toggleSwitch.isHidden = true
+       print("saniye")
+                  }
+      
+        
+>>>>>>> main
         cell?.toggleSwitch.tag = indexPath.row + 4*indexPath.section // her bir swice ayrı bir tag verecek
       
        // give tag to each toggle switch

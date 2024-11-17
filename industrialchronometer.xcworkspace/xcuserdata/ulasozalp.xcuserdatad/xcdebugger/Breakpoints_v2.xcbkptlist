@@ -764,9 +764,15 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "251"
             endingLineNumber = "251"
             landmarkName = "tableView(_:didSelectRowAt:)"
+=======
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "toggleTriggered(_:)"
+>>>>>>> main
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -876,8 +882,15 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "293"
             endingLineNumber = "293">
+=======
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+>>>>>>> main
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -922,8 +935,13 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "319"
             endingLineNumber = "319">
+=======
+            startingLineNumber = "286"
+            endingLineNumber = "286">
+>>>>>>> main
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -936,9 +954,15 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "tableView(_:cellForRowAt:)"
+=======
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "timeUnitOnOFF()"
+>>>>>>> main
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -952,9 +976,15 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "tableView(_:cellForRowAt:)"
+=======
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "timeUnitOnOFF()"
+>>>>>>> main
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1176,8 +1206,13 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "92"
             endingLineNumber = "92"
+=======
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+>>>>>>> main
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1192,8 +1227,13 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "232"
             endingLineNumber = "232"
+=======
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+>>>>>>> main
             landmarkName = "toggleTriggered(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1202,14 +1242,23 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7F96CC53-E321-4004-A90B-6BFCA53A610B"
+<<<<<<< HEAD
             shouldBeEnabled = "No"
+=======
+            shouldBeEnabled = "Yes"
+>>>>>>> main
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "233"
             endingLineNumber = "233"
+=======
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+>>>>>>> main
             landmarkName = "toggleTriggered(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1240,8 +1289,13 @@
             filePath = "industrialchronometer/Controller/AboutViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "94"
             endingLineNumber = "94"
+=======
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+>>>>>>> main
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1945,6 +1999,86 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "630518A6-5EDE-492D-A86E-3C74E4C8D63A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "industrialchronometer/Controller/AboutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F5CB346-0959-45C0-8DEF-AB8472AF04AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "industrialchronometer/Controller/AboutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B50601E-7916-4015-8C19-1933CC6BC8D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "industrialchronometer/Controller/AboutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43260E87-41D0-415F-9CEB-2B728F7BD921"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "industrialchronometer/Controller/AboutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48AF5791-6D3E-48E7-8536-09B798BF160D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "industrialchronometer/Controller/AboutViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
